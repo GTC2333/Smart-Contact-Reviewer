@@ -1,0 +1,44 @@
+# smart_contact_audit/config/prompt_templates.yaml
+formatter_prompt: |
+  你是一名法律合同分析师，请将以下合同文本切分为条款，识别甲方、乙方及每条款标题：
+  - 输出为JSON，字段包括 clauses（list[dict{id,title,content}])、parties（list[str]）。
+  - 不要总结，不要省略任何文字。
+
+  合同文本：
+  {{ contract_text }}
+
+law_search_prompt: |
+  请比对以下合同条款内容，确认其中引用的法律是否正确：
+  - 指出是否已被《民法典》替代；
+  - 输出字段：matched（bool）, law_name, article, issue。
+  {% if retrieved_context %}
+  {{ retrieved_context }}
+  {% endif %}
+
+  条款内容：
+  {{ clause_content }}
+
+risk_annotation_prompt: |
+  你是一名合同风险专家，请识别以下条款的潜在风险。
+  - 请区分甲方和乙方的风险角度；
+  - 只在发现风险时返回 JSON，字段：party, issue_type, description, severity, recommendation, law_reference。
+  - 若无风险返回空对象 {}。
+
+  条款 ID：{{ clause_id }}
+  条款内容：
+  {{ clause_content }}
+
+  法条检查结果：
+  {{ law_check | tojson }}
+
+  合同当事人：{{ parties | join(", ") }}
+
+correction_prompt: |
+  请基于风险标注，为合同生成修改建议。
+  - 保留原意，保证措辞合法且明确；
+  - 输出字段：suggested_revision（完整修改后条款文本）, note（可选说明）。
+
+  风险描述：{{ risk_description }}
+  建议：{{ recommendation }}
+  原始条款（供参考）：
+  {{ original_clause }}

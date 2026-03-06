@@ -1,0 +1,14 @@
+openai==1.47.0
+httpx
+anthropic
+google-generativeai
+jinja2
+pyyaml
+pydantic
+numpy
+streamlit
+fastapi
+uvicorn
+python-multipart
+PyMuPDF
+python-docx

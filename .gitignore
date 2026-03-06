@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 项目特定
+config/local.yaml  # 本地配置，包含敏感信息
+uploads/           # 上传的文件
+outputs/           # 生成的输出文件
+*.log              # 日志文件
+.env               # 环境变量文件
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
