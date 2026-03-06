@@ -4,7 +4,7 @@
 
 ## 📘 项目简介
 
-本项目利用 **AI + 法律知识图谱 + 多智能体系统**，实现对商业合同的**自动化审核、风险标注与修改建议生成**。  
+本项目利用 **AI + 法律知识图谱 + 多智能体系统**，实现对商业合同的**自动化审核、风险标注与修改建议生成**。
 支持 **PDF / Word / TXT** 输入，输出结构化 JSON 报告，并提供 **Web 前端交互界面**（Streamlit）与 **RESTful API**（FastAPI）。
 
 ---
@@ -57,6 +57,7 @@ smart_contact_audit/
 ```
 
 ---
+
 ## ⚙️ 统一配置（`config/settings.yaml`）
 
 ```yaml
@@ -82,6 +83,8 @@ agents:
     temperature: 0.0
     max_tokens: 800
   ...
+```
+
 ## 🌐 前端界面（Streamlit）
 
 **文件**：`frontend/app.py`
@@ -100,6 +103,8 @@ agents:
 
 ```bash
 streamlit run frontend/app.py
+```
+
 ## ⚙️ 模块说明与输入输出格式
 
 ### 1️⃣ `ContractFormatterAgent`
@@ -125,6 +130,7 @@ streamlit run frontend/app.py
 ### 依赖
 ```bash
 pip install openai==1.47.0 jinja2 pyyaml
+```
 
 ---
 
@@ -222,12 +228,14 @@ correction_prompt: |
 ---
 
 ## 安装依赖
+
+```bash
 pip install streamlit fastapi uvicorn python-multipart PyMuPDF python-docx
+```
 
 ## 🧩 可扩展功能（下一阶段）
 
 * 引入 RAG（检索增强生成）机制，将法条数据库嵌入向量索引。
 * 接入 PDF/Word 批注生成器（可在合同原文上高亮标注）。
-* 加入“风险评分系统”，评估整体合同风险等级。
+* 加入"风险评分系统"，评估整体合同风险等级。
 * 引入版本对比：标注合同修订前后的变更差异。
-
