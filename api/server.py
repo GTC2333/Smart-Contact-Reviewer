@@ -3,7 +3,7 @@ FastAPI server for contract audit system.
 Decoupled from main.py, uses service layer.
 """
 from fastapi import FastAPI, File, UploadFile, HTTPException, Query
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 import uvicorn
 from typing import Optional
 
@@ -263,6 +263,71 @@ async def list_tasks(limit: int = Query(50, ge=1, le=100)):
     """
     tasks = task_manager.list_tasks(limit=limit)
     return {"tasks": tasks}
+
+
+# ------------------- Export Endpoints -------------------
+
+from core.exporters import PDFExporter, WordExporter
+import tempfile
+import os
+
+
+@app.get("/sessions/{session_id}/export/pdf")
+async def export_pdf(session_id: str):
+    """
+    Export session as PDF report.
+
+    Args:
+        session_id: Session identifier
+
+    Returns:
+        PDF file
+    """
+    session = session_store.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="会话不存在")
+
+    try:
+        exporter = PDFExporter()
+        output_path = exporter.export(session.audit_result)
+
+        return FileResponse(
+            output_path,
+            media_type="application/pdf",
+            filename=f"合同审核报告_{session.contract_name}.pdf"
+        )
+    except Exception as e:
+        logger.error(f"PDF export failed: {e}")
+        raise HTTPException(status_code=500, detail=f"PDF导出失败: {str(e)}")
+
+
+@app.get("/sessions/{session_id}/export/word")
+async def export_word(session_id: str):
+    """
+    Export session as Word document.
+
+    Args:
+        session_id: Session identifier
+
+    Returns:
+        Word file
+    """
+    session = session_store.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="会话不存在")
+
+    try:
+        exporter = WordExporter()
+        output_path = exporter.export(session.audit_result)
+
+        return FileResponse(
+            output_path,
+            media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            filename=f"合同审核报告_{session.contract_name}.docx"
+        )
+    except Exception as e:
+        logger.error(f"Word export failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Word导出失败: {str(e)}")
 
 
 if __name__ == "__main__":
