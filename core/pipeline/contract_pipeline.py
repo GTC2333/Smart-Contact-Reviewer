@@ -41,16 +41,27 @@ class LawSearchStep(PipelineStep):
         """Search legal references for each clause."""
         formatted = context.get("formatted_contract", {})
         clauses = formatted.get("clauses", [])
-        
+
         self.logger.info(f"Searching legal references for {len(clauses)} clauses...")
         law_results = []
         for clause in clauses:
             law_info = self.law_search.check_law(clause.get("content", ""))
+
+            # Ensure law_info is always a dict
+            if isinstance(law_info, list):
+                # If it's a list, take the first item or create a default dict
+                if law_info:
+                    law_info = law_info[0] if isinstance(law_info[0], dict) else {"matched": False, "law_name": "", "article": "", "issue": ""}
+                else:
+                    law_info = {"matched": False, "law_name": "", "article": "", "issue": ""}
+            elif not isinstance(law_info, dict):
+                law_info = {"matched": False, "law_name": "", "article": "", "issue": ""}
+
             law_results.append({
                 "clause_id": clause.get("id"),
                 "law_info": law_info
             })
-        
+
         context["law_results"] = law_results
         return context
 
@@ -68,24 +79,37 @@ class RiskAnnotationStep(PipelineStep):
         clauses = formatted.get("clauses", [])
         parties = formatted.get("parties", [])
         law_results = context.get("law_results", [])
-        
+
         # Create lookup for law results
-        law_lookup = {r["clause_id"]: r["law_info"] for r in law_results}
-        
+        law_lookup = {}
+        for r in law_results:
+            clause_id = r.get("clause_id")
+            law_info = r.get("law_info", {})
+            if isinstance(law_info, list):
+                law_info = law_info[0] if law_info else {}
+            law_lookup[clause_id] = law_info
+
         self.logger.info(f"Annotating risks for {len(clauses)} clauses...")
         annotations = []
         for clause in clauses:
             clause_id = clause.get("id")
             law_info = law_lookup.get(clause_id, {})
-            
+
             # Convert parties to list of strings for compatibility
-            parties_list = [p.get("name", "") if isinstance(p, dict) else str(p) for p in parties]
-            
+            parties_list = []
+            for p in parties:
+                if isinstance(p, dict):
+                    parties_list.append(p.get("name", p.get("role", "")))
+                elif isinstance(p, str):
+                    parties_list.append(p)
+                else:
+                    parties_list.append(str(p))
+
             risk_info = self.risk_annotator.annotate(clause, law_info, parties_list)
             if risk_info:
                 risk_info["original_clause"] = clause.get("content", "")
                 annotations.append(risk_info)
-        
+
         context["annotations"] = annotations
         return context
 
@@ -197,7 +221,18 @@ class ContractAuditPipeline(Pipeline):
                 "party_count": len(formatted.get("parties", [])),
             },
             "parties": formatted.get("parties", []),
+            "clauses": formatted.get("clauses", []),
             "annotations": [a.dict() for a in annotation_results],
+            "corrections": [
+                {
+                    "clause_id": a.clause_id,
+                    "issue": a.description,
+                    "suggested_revision": a.suggested_revision,
+                    "note": a.note,
+                }
+                for a in annotation_results
+                if a.suggested_revision or a.note
+            ],
         }
         
         self.logger.info(f"Pipeline completed for contract {contract_id}")
