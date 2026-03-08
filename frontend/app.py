@@ -479,53 +479,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-    /* Buttons */
-    .stButton > button {
-        border-radius: 8px;
-        font-weight: 500;
-    }
-
-    /* Stats */
-    .stat-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        text-align: center;
-    }
-    .stat-card.high { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%); }
-    .stat-card.medium { background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%); }
-    .stat-card.low { background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%); }
-
-    /* Clause card */
-    .clause-card {
-        background: white;
-        border-left: 4px solid #FF6B6B;
-        border-radius: 8px;
-        padding: 1rem;
-        margin-bottom: 0.75rem;
-        cursor: pointer;
-    }
-    .clause-card:hover {
-        background: #fafafa;
-    }
-    .clause-card.selected {
-        border-left-width: 6px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    /* Section headers */
-    .section-header {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #f0f0f0;
-    }
-</style>
-""", unsafe_allow_html=True)
-
 
 # ==================== Sidebar ====================
 
