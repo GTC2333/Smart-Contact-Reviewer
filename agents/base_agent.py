@@ -3,12 +3,41 @@ Base agent class with dependency injection.
 Simplified to focus on core prompt rendering and LLM calling logic.
 """
 import json
+import time
 from typing import Any, Dict, Optional
+from functools import wraps
 from jinja2 import Template
 
 from core.config_manager import get_config_manager
 from core.logger import get_logger
 from core.llm.interface import LLMClient
+
+
+def retry_on_failure(max_retries: int = 3, delay: float = 1.0, backoff: float = 2.0):
+    """
+    Decorator to retry a function on failure with exponential backoff.
+
+    Args:
+        max_retries: Maximum number of retry attempts
+        delay: Initial delay between retries in seconds
+        backoff: Multiplier for delay after each retry
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            last_exception = None
+            current_delay = delay
+            for attempt in range(max_retries):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    last_exception = e
+                    if attempt < max_retries - 1:
+                        time.sleep(current_delay)
+                        current_delay *= backoff
+            raise last_exception
+        return wrapper
+    return decorator
 
 
 class BaseAgent:
@@ -63,6 +92,7 @@ class BaseAgent:
         template_str = self.config_manager.get_prompt_template(template_key)
         return Template(template_str).render(**kwargs)
     
+    @retry_on_failure(max_retries=3, delay=2.0, backoff=2.0)
     def _call_llm(
         self,
         system: str,
@@ -71,12 +101,13 @@ class BaseAgent:
     ) -> Dict[str, Any]:
         """
         Call LLM with system and user prompts.
-        
+        Includes automatic retry on failure with exponential backoff.
+
         Args:
             system: System prompt
             user: User prompt
             response_format: Optional response format specification
-        
+
         Returns:
             Dict with 'raw' key containing response content
         """
@@ -84,7 +115,7 @@ class BaseAgent:
             {"role": "system", "content": system},
             {"role": "user", "content": user}
         ]
-        
+
         provider = self.config_manager.get("llm.provider", "openai")
         self.logger.info(f"Calling {self.model} via {provider} | system_len={len(system)}")
         
@@ -107,22 +138,40 @@ class BaseAgent:
     def _parse_json(self, raw: str) -> Dict:
         """
         Parse JSON from raw string, handling markdown code blocks.
-        
+
         Args:
             raw: Raw JSON string, possibly wrapped in markdown
-        
+
         Returns:
             Parsed JSON dictionary
         """
+        # First try the raw string
         try:
             return json.loads(raw)
         except json.JSONDecodeError:
-            # Try to clean markdown code blocks
-            cleaned = raw.strip()
-            if cleaned.startswith("```json"):
-                cleaned = cleaned[7:]
-            elif cleaned.startswith("```"):
-                cleaned = cleaned[3:]
-            if cleaned.endswith("```"):
-                cleaned = cleaned[:-3]
+            pass
+
+        # Try to clean markdown code blocks
+        cleaned = raw.strip()
+        if cleaned.startswith("```json"):
+            cleaned = cleaned[7:]
+        elif cleaned.startswith("```"):
+            cleaned = cleaned[3:]
+        if cleaned.endswith("```"):
+            cleaned = cleaned[:-3]
+
+        # Try parsing again
+        try:
             return json.loads(cleaned.strip())
+        except json.JSONDecodeError:
+            pass
+
+        # Try with ast.literal_eval as fallback
+        try:
+            import ast
+            return ast.literal_eval(cleaned.strip())
+        except:
+            pass
+
+        # If all fails, raise the original error
+        raise ValueError(f"Failed to parse JSON from: {cleaned[:200]}...")
