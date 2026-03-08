@@ -4,9 +4,11 @@ Contract audit pipeline implementation.
 from typing import Dict, Any, List
 from datetime import datetime
 import uuid
+import time
 
 from .interface import Pipeline, PipelineStep
 from core.logger import get_logger
+from core.metrics import metrics_collector
 from models.contract import FormattedContract
 from models.annotation import AnnotationResult
 
@@ -182,7 +184,12 @@ class ContractAuditPipeline(Pipeline):
             "contract_text": contract_text,
             "contract_id": contract_id,
         }
-        
+
+        # Start metrics tracking
+        contract_name = input_data.get("contract_name", contract_id)
+        audit_id = metrics_collector.start_audit(contract_name)
+        start_time = time.time()
+
         # Execute pipeline steps
         self.logger.info(f"Starting audit pipeline for contract {contract_id}")
         for i, step in enumerate(self.steps, 1):
@@ -234,6 +241,15 @@ class ContractAuditPipeline(Pipeline):
                 if a.suggested_revision or a.note
             ],
         }
-        
-        self.logger.info(f"Pipeline completed for contract {contract_id}")
+
+        # Record metrics
+        duration = time.time() - start_time
+        metrics_collector.record(
+            audit_id=audit_id,
+            contract_name=contract_name,
+            clause_count=len(formatted.get("clauses", [])),
+            annotation_count=len(annotation_results)
+        )
+
+        self.logger.info(f"Pipeline completed for contract {contract_id} in {duration:.2f}s")
         return result

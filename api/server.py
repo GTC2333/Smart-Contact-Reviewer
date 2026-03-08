@@ -160,6 +160,36 @@ async def health_check():
     return {"status": "ok", "service": "contract-audit-api"}
 
 
+# ------------------- Metrics Endpoints -------------------
+
+from core.metrics import metrics_collector
+
+
+@app.get("/metrics")
+async def get_metrics():
+    """
+    Get audit metrics summary.
+
+    Returns:
+        Metrics summary including totals and averages
+    """
+    return metrics_collector.get_summary()
+
+
+@app.get("/metrics/recent")
+async def get_recent_metrics(limit: int = Query(10, ge=1, le=50)):
+    """
+    Get recent audit metrics.
+
+    Args:
+        limit: Maximum number of recent audits to return
+
+    Returns:
+        List of recent audit metrics
+    """
+    return {"metrics": metrics_collector.get_recent(limit=limit)}
+
+
 # ------------------- Async Task Endpoints -------------------
 
 from api.tasks import task_manager, TaskStatus
