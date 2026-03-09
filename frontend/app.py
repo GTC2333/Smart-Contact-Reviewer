@@ -339,6 +339,31 @@ st.markdown("""
         border-color: var(--color-accent);
     }
 
+    /* Streamlit 按钮美化为侧边栏按钮样式 */
+    .sidebar-btn-container .stButton > button {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-md) !important;
+        font-weight: 500 !important;
+        font-size: 0.95rem !important;
+        transition: all var(--transition-normal) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1rem !important;
+        background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%) !important;
+        color: white !important;
+        border: none !important;
+        box-shadow: var(--shadow-sm) !important;
+    }
+
+    .sidebar-btn-container .stButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: var(--shadow-md) !important;
+        background: linear-gradient(135deg, var(--color-accent-hover) 0%, #B8956A 100%) !important;
+    }
+
     /* Cards */
     .card {
         background: var(--color-bg-card);
@@ -785,9 +810,11 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     # New audit button
+    st.markdown('<div class="sidebar-btn-container">', unsafe_allow_html=True)
     if st.button("➕ 新建审核", use_container_width=True, key="btn_new_audit_sidebar"):
         navigate_to_home()
         st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown("---")
 
