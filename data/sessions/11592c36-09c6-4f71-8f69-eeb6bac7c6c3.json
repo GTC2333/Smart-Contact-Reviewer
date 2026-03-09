@@ -1,0 +1,38 @@
+{
+  "session_id": "11592c36-09c6-4f71-8f69-eeb6bac7c6c3",
+  "contract_name": "测试合同_真实图片.docx",
+  "created_at": "2026-03-09T15:31:32.927888",
+  "updated_at": "2026-03-09T15:31:32.927888",
+  "audit_result": {
+    "contract_id": "C20260309-9E27",
+    "contract_text": "测试合同（含真实图片）\n甲方：北京市某科技有限公司\n\n乙方：上海某网络有限公司",
+    "metadata": {
+      "processed_at": "2026-03-09T15:31:32.927049",
+      "clause_count": 3,
+      "party_count": 2
+    },
+    "parties": [
+      "北京市某科技有限公司",
+      "上海某网络有限公司"
+    ],
+    "clauses": [
+      {
+        "id": 1,
+        "title": "合同标题",
+        "content": "测试合同（含真实图片）"
+      },
+      {
+        "id": 2,
+        "title": "甲方信息",
+        "content": "甲方：北京市某科技有限公司"
+      },
+      {
+        "id": 3,
+        "title": "乙方信息",
+        "content": "乙方：上海某网络有限公司"
+      }
+    ],
+    "annotations": [],
+    "corrections": []
+  }
+}

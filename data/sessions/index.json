@@ -1,0 +1,184 @@
+{
+  "sessions": [
+    {
+      "session_id": "11592c36-09c6-4f71-8f69-eeb6bac7c6c3",
+      "contract_name": "测试合同_真实图片.docx",
+      "created_at": "2026-03-09T15:31:32.927888",
+      "updated_at": "2026-03-09T15:31:32.927888",
+      "risk_count": 0,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "89a5d042-246d-42a3-9709-a6059c4ecd6a",
+      "contract_name": "测试合同.docx",
+      "created_at": "2026-03-09T14:52:28.615523",
+      "updated_at": "2026-03-09T14:52:28.615523",
+      "risk_count": 2,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 1
+    },
+    {
+      "session_id": "b1b27b03-08c6-44fe-870f-dc77f3ea60af",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-09T14:43:51.325999",
+      "updated_at": "2026-03-09T14:43:51.325999",
+      "risk_count": 6,
+      "risk_high": 1,
+      "risk_medium": 5,
+      "risk_low": 0
+    },
+    {
+      "session_id": "2d2e8b6d-739f-47be-90bb-5c716bc0019b",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-09T10:43:17.017313",
+      "updated_at": "2026-03-09T10:43:17.017313",
+      "risk_count": 7,
+      "risk_high": 3,
+      "risk_medium": 2,
+      "risk_low": 0
+    },
+    {
+      "session_id": "3ebb183a-ca81-4d9f-970e-2afd29682f58",
+      "contract_name": "test.txt",
+      "created_at": "2026-03-09T10:20:25.615464",
+      "updated_at": "2026-03-09T10:20:25.615464",
+      "risk_count": 5,
+      "risk_high": 2,
+      "risk_medium": 1,
+      "risk_low": 1
+    },
+    {
+      "session_id": "c427e810-5e53-4745-be75-91547dd9f1d4",
+      "contract_name": "采购合同.txt",
+      "created_at": "2026-03-09T09:33:39.018013",
+      "updated_at": "2026-03-09T09:33:39.018013",
+      "risk_count": 6,
+      "risk_high": 1,
+      "risk_medium": 1,
+      "risk_low": 0
+    },
+    {
+      "session_id": "35466fad-be5f-48f3-b5da-68f1bdd402d4",
+      "contract_name": "房屋租赁合同.txt",
+      "created_at": "2026-03-09T00:10:06.529358",
+      "updated_at": "2026-03-09T00:10:06.529358",
+      "risk_count": 7,
+      "risk_high": 1,
+      "risk_medium": 3,
+      "risk_low": 0
+    },
+    {
+      "session_id": "64c321a5-ce49-4b35-a02c-9b965b2e0cc0",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-09T00:05:06.337123",
+      "updated_at": "2026-03-09T00:05:06.337123",
+      "risk_count": 6,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "673cc765-a4bc-45a1-b258-f570beda1921",
+      "contract_name": "房屋租赁合同.txt",
+      "created_at": "2026-03-08T23:33:10.807147",
+      "updated_at": "2026-03-08T23:33:10.807147",
+      "risk_count": 6,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 1
+    },
+    {
+      "session_id": "7539ea07-b218-4cca-bf4d-e87e5599c8de",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-08T23:10:26.990811",
+      "updated_at": "2026-03-08T23:10:26.990811",
+      "risk_count": 6,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "df71dcb3-7080-46f2-a254-f1f75b685a81",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-08T23:07:43.368067",
+      "updated_at": "2026-03-08T23:07:43.368067",
+      "risk_count": 7,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "cdf5f149-2acf-4e49-bace-91a293b8f4bb",
+      "contract_name": "房屋租赁合同.txt",
+      "created_at": "2026-03-08T23:01:27.220532",
+      "updated_at": "2026-03-08T23:01:27.220532",
+      "risk_count": 4,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 2
+    },
+    {
+      "session_id": "fe77920f-a455-4f68-b01c-fdce9c182516",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-08T21:41:09.753894",
+      "updated_at": "2026-03-08T21:41:09.753894",
+      "risk_count": 7,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "05c4a95e-5884-46b2-a075-23481630bc2d",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-08T21:36:40.666294",
+      "updated_at": "2026-03-08T21:36:40.666294",
+      "risk_count": 7,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "a31aab20-ddc6-4abd-91d3-da892369210b",
+      "contract_name": "软件开发服务合同.txt",
+      "created_at": "2026-03-08T17:58:59.309642",
+      "updated_at": "2026-03-08T17:58:59.309642",
+      "risk_count": 6,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "6f38fd52-7289-45de-bfd0-4c2b079e6a1a",
+      "contract_name": "房屋租赁合同.txt",
+      "created_at": "2026-03-08T17:31:37.015513",
+      "updated_at": "2026-03-08T17:31:37.015513",
+      "risk_count": 5,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "2900bfb4-6a39-4d13-9b81-b336acddd29b",
+      "contract_name": "test2.txt",
+      "created_at": "2026-03-08T17:03:44.738789",
+      "updated_at": "2026-03-08T17:03:44.738789",
+      "risk_count": 0,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    },
+    {
+      "session_id": "c521c743-16e7-4653-a05f-f0c978c2ca34",
+      "contract_name": "test1.txt",
+      "created_at": "2026-03-08T17:03:44.737330",
+      "updated_at": "2026-03-08T17:03:44.737330",
+      "risk_count": 0,
+      "risk_high": 0,
+      "risk_medium": 0,
+      "risk_low": 0
+    }
+  ]
+}

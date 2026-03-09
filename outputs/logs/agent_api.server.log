@@ -1,0 +1,117 @@
+2026-03-06 17:22:15 | api.server | ERROR | Audit failed: 'ThinkingBlock' object has no attribute 'text'
+Traceback (most recent call last):
+  File "/root/smart_contact_reviewer/api/server.py", line 50, in audit_contract
+    result = audit_service.audit_from_file(file_content, file.filename)
+  File "/root/smart_contact_reviewer/api/services/audit_service.py", line 56, in audit_from_file
+    result = self.pipeline_service.audit_contract(contract_text)
+  File "/root/smart_contact_reviewer/services/pipeline_service.py", line 64, in audit_contract
+    result = self.pipeline.run(input_data)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 167, in run
+    context = step.execute(context)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 28, in execute
+    formatted = self.formatter.process(contract_text)
+  File "/root/smart_contact_reviewer/agents/contract_formatter.py", line 16, in process
+    raw_resp = self._call_llm(
+  File "/root/smart_contact_reviewer/agents/base_agent.py", line 92, in _call_llm
+    result = self.llm_client.chat_completion(
+  File "/root/smart_contact_reviewer/core/llm/factory.py", line 62, in chat_completion
+    return {"content": resp.content[0].text}
+  File "/usr/local/lib/python3.10/dist-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ThinkingBlock' object has no attribute 'text'
+2026-03-06 17:33:46 | api.server | ERROR | Audit failed: 'ThinkingBlock' object has no attribute 'text'
+Traceback (most recent call last):
+  File "/root/smart_contact_reviewer/api/server.py", line 50, in audit_contract
+    result = audit_service.audit_from_file(file_content, file.filename)
+  File "/root/smart_contact_reviewer/api/services/audit_service.py", line 56, in audit_from_file
+    result = self.pipeline_service.audit_contract(contract_text)
+  File "/root/smart_contact_reviewer/services/pipeline_service.py", line 64, in audit_contract
+    result = self.pipeline.run(input_data)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 167, in run
+    context = step.execute(context)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 28, in execute
+    formatted = self.formatter.process(contract_text)
+  File "/root/smart_contact_reviewer/agents/contract_formatter.py", line 16, in process
+    raw_resp = self._call_llm(
+  File "/root/smart_contact_reviewer/agents/base_agent.py", line 92, in _call_llm
+    result = self.llm_client.chat_completion(
+  File "/root/smart_contact_reviewer/core/llm/factory.py", line 62, in chat_completion
+    return {"content": resp.content[0].text}
+  File "/usr/local/lib/python3.10/dist-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ThinkingBlock' object has no attribute 'text'
+2026-03-06 19:36:01 | api.server | ERROR | Validation error: Expecting ',' delimiter: line 1 column 113 (char 112)
+2026-03-06 19:42:55 | api.server | ERROR | Audit failed: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/root/smart_contact_reviewer/api/server.py", line 50, in audit_contract
+    result = audit_service.audit_from_file(file_content, file.filename)
+  File "/root/smart_contact_reviewer/api/services/audit_service.py", line 56, in audit_from_file
+    result = self.pipeline_service.audit_contract(contract_text)
+  File "/root/smart_contact_reviewer/services/pipeline_service.py", line 64, in audit_contract
+    result = self.pipeline.run(input_data)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 167, in run
+    context = step.execute(context)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 84, in execute
+    risk_info = self.risk_annotator.annotate(clause, law_info, parties_list)
+  File "/root/smart_contact_reviewer/agents/risk_annotator.py", line 36, in annotate
+    "party": data.get("party", "both"),
+AttributeError: 'list' object has no attribute 'get'
+2026-03-06 20:05:16 | api.server | ERROR | Validation error: Expecting ',' delimiter: line 10 column 41 (char 164)
+2026-03-06 21:36:15 | api.server | INFO | Audit completed for file: 软件开发服务合同.txt
+2026-03-06 21:55:40 | api.server | INFO | Audit completed for file: 软件开发服务合同.txt
+2026-03-06 22:51:28 | api.server | ERROR | Audit failed: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/root/smart_contact_reviewer/api/server.py", line 55, in audit_contract
+    result = audit_service.audit_from_file(file_content, file.filename)
+  File "/root/smart_contact_reviewer/api/services/audit_service.py", line 56, in audit_from_file
+    result = self.pipeline_service.audit_contract(contract_text)
+  File "/root/smart_contact_reviewer/services/pipeline_service.py", line 64, in audit_contract
+    result = self.pipeline.run(input_data)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 191, in run
+    context = step.execute(context)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 108, in execute
+    risk_info = self.risk_annotator.annotate(clause, law_info, parties_list)
+  File "/root/smart_contact_reviewer/agents/risk_annotator.py", line 35, in annotate
+    "party": data.get("party", "both"),
+AttributeError: 'list' object has no attribute 'get'
+2026-03-08 16:31:18 | api.server | ERROR | Audit failed: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/root/smart_contact_reviewer/api/server.py", line 55, in audit_contract
+    result = audit_service.audit_from_file(file_content, file.filename)
+  File "/root/smart_contact_reviewer/api/services/audit_service.py", line 56, in audit_from_file
+    result = self.pipeline_service.audit_contract(contract_text)
+  File "/root/smart_contact_reviewer/services/pipeline_service.py", line 64, in audit_contract
+    result = self.pipeline.run(input_data)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 191, in run
+    context = step.execute(context)
+  File "/root/smart_contact_reviewer/core/pipeline/contract_pipeline.py", line 108, in execute
+    risk_info = self.risk_annotator.annotate(clause, law_info, parties_list)
+  File "/root/smart_contact_reviewer/agents/risk_annotator.py", line 35, in annotate
+    "party": data.get("party", "both"),
+AttributeError: 'list' object has no attribute 'get'
+2026-03-08 16:46:36 | api.server | ERROR | Audit failed: [Errno 2] No such file or directory: '/root/smart_contact_reviewer/data/sessions/25e19ca3-7452-40d5-ae88-bd09f73eeb93.json'
+Traceback (most recent call last):
+  File "/root/smart_contact_reviewer/api/server.py", line 59, in audit_contract
+    session_id = session_store.save_session(contract_name, result)
+  File "/root/smart_contact_reviewer/core/storage/session_store.py", line 105, in save_session
+    with open(session_file, encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/smart_contact_reviewer/data/sessions/25e19ca3-7452-40d5-ae88-bd09f73eeb93.json'
+2026-03-08 17:12:28 | api.server | ERROR | Validation error: Failed to parse JSON from: 
+{
+  "party": "双方",
+  "issue_type": "违约金条款",
+  "description": "条款1约定擅自解除合同的违约金为剩余租期租金总额的30%。根据《民法典》第五百八十五条，约定的违约金过分高于造成的损失的，当事人可以请求人民法院或者仲裁机构予以适当减少。司法实践中，违约金超过造成损失的30%一般可被认定为“过分高于”。本条款以“剩余租期租金总额”为基数，在...
+2026-03-08 17:31:37 | api.server | INFO | Audit completed for file: 房屋租赁合同.txt, session: 6f38fd52-7289-45de-bfd0-4c2b079e6a1a
+2026-03-08 17:58:59 | api.server | INFO | Audit completed for file: 软件开发服务合同.txt, session: a31aab20-ddc6-4abd-91d3-da892369210b
+2026-03-08 21:36:40 | api.server | INFO | Audit completed for file: 软件开发服务合同.txt, session: 05c4a95e-5884-46b2-a075-23481630bc2d
+2026-03-08 21:41:09 | api.server | INFO | Audit completed for file: 软件开发服务合同.txt, session: fe77920f-a455-4f68-b01c-fdce9c182516
+2026-03-08 22:45:27 | api.server | ERROR | Validation error: Failed to parse JSON from: {
+  "clauses": [
+    {
+      "id": 1,
+      "title": "背景介绍",
+      "content": "就是我最近有一些苦恼，就是主要是我也没太遇到过这种情况，就是这样的，就是我最近在实习，然后我们办公室就是氛围比较好，然后有一个跟我同期的实习生，然后我俩就是一开始不是很熟，但是最近就是关系变好了，很，也不是最近就我从 2 月份开始实习，然后我...
+2026-03-08 23:01:27 | api.server | INFO | Async audit completed for 房屋租赁合同.txt, session: cdf5f149-2acf-4e49-bace-91a293b8f4bb
+2026-03-08 23:07:43 | api.server | INFO | Async audit completed for 软件开发服务合同.txt, session: df71dcb3-7080-46f2-a254-f1f75b685a81
+2026-03-08 23:10:26 | api.server | INFO | Async audit completed for 软件开发服务合同.txt, session: 7539ea07-b218-4cca-bf4d-e87e5599c8de
+2026-03-08 23:33:10 | api.server | INFO | Async audit completed for 房屋租赁合同.txt, session: 673cc765-a4bc-45a1-b258-f570beda1921

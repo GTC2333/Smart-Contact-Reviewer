@@ -1,0 +1,586 @@
+2026-03-06 17:01:37 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 17:30:24 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 17:31:13 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 19:33:49 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 19:40:46 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:40:55 | LawSearchAgent | INFO | LLM response received, len=181
+2026-03-06 19:40:55 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:41:06 | LawSearchAgent | INFO | LLM response received, len=90
+2026-03-06 19:41:06 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:41:13 | LawSearchAgent | INFO | LLM response received, len=130
+2026-03-06 19:41:13 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:41:25 | LawSearchAgent | INFO | LLM response received, len=151
+2026-03-06 19:41:25 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:41:37 | LawSearchAgent | INFO | LLM response received, len=237
+2026-03-06 19:41:37 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:41:52 | LawSearchAgent | INFO | LLM response received, len=90
+2026-03-06 19:41:52 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:42:00 | LawSearchAgent | INFO | LLM response received, len=145
+2026-03-06 19:42:00 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:42:09 | LawSearchAgent | INFO | LLM response received, len=198
+2026-03-06 19:42:09 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 19:42:18 | LawSearchAgent | INFO | LLM response received, len=203
+2026-03-06 19:44:15 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:05:57 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:05:57 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 20:06:11 | LawSearchAgent | INFO | LLM response received, len=128
+2026-03-06 20:06:11 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 20:06:21 | LawSearchAgent | INFO | LLM response received, len=196
+2026-03-06 20:08:21 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:12:09 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:13:07 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:17:10 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:17:23 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:17:27 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:17:34 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:17:44 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:19:37 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:19:50 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:20:48 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:25:53 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:26:56 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:27:01 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 20:27:25 | LawSearchAgent | INFO | Calling MiniMax-M2.5 via anthropic | system_len=32
+2026-03-06 20:27:33 | LawSearchAgent | INFO | LLM response received, len=102
+2026-03-06 21:29:57 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 21:32:33 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:32:37 | LawSearchAgent | INFO | LLM response received, len=195
+2026-03-06 21:32:37 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:32:40 | LawSearchAgent | INFO | LLM response received, len=125
+2026-03-06 21:32:40 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:32:43 | LawSearchAgent | INFO | LLM response received, len=139
+2026-03-06 21:32:43 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:32:46 | LawSearchAgent | INFO | LLM response received, len=159
+2026-03-06 21:32:46 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:32:52 | LawSearchAgent | INFO | LLM response received, len=264
+2026-03-06 21:32:52 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:32:56 | LawSearchAgent | INFO | LLM response received, len=181
+2026-03-06 21:32:56 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:01 | LawSearchAgent | INFO | LLM response received, len=225
+2026-03-06 21:33:01 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:07 | LawSearchAgent | INFO | LLM response received, len=305
+2026-03-06 21:33:07 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:13 | LawSearchAgent | INFO | LLM response received, len=260
+2026-03-06 21:33:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:18 | LawSearchAgent | INFO | LLM response received, len=238
+2026-03-06 21:33:18 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:23 | LawSearchAgent | INFO | LLM response received, len=191
+2026-03-06 21:33:23 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:28 | LawSearchAgent | INFO | LLM response received, len=258
+2026-03-06 21:33:28 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:30 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-06 21:33:30 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:33 | LawSearchAgent | INFO | LLM response received, len=121
+2026-03-06 21:33:33 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:33:37 | LawSearchAgent | INFO | LLM response received, len=159
+2026-03-06 21:52:22 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:52:27 | LawSearchAgent | INFO | LLM response received, len=196
+2026-03-06 21:52:27 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:52:33 | LawSearchAgent | INFO | LLM response received, len=300
+2026-03-06 21:52:33 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:52:38 | LawSearchAgent | INFO | LLM response received, len=235
+2026-03-06 21:52:38 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:52:43 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-06 21:52:43 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:52:59 | LawSearchAgent | INFO | LLM response received, len=693
+2026-03-06 21:52:59 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:53:03 | LawSearchAgent | INFO | LLM response received, len=155
+2026-03-06 21:53:03 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:53:07 | LawSearchAgent | INFO | LLM response received, len=202
+2026-03-06 21:53:07 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:53:14 | LawSearchAgent | INFO | LLM response received, len=322
+2026-03-06 21:53:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 21:53:16 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-06 22:39:48 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 22:41:37 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 22:42:54 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-06 22:49:41 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:49:45 | LawSearchAgent | INFO | LLM response received, len=169
+2026-03-06 22:49:45 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:49:50 | LawSearchAgent | INFO | LLM response received, len=194
+2026-03-06 22:49:50 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:49:58 | LawSearchAgent | INFO | LLM response received, len=313
+2026-03-06 22:49:58 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:50:01 | LawSearchAgent | INFO | LLM response received, len=148
+2026-03-06 22:50:01 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:50:13 | LawSearchAgent | INFO | LLM response received, len=478
+2026-03-06 22:50:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:50:21 | LawSearchAgent | INFO | LLM response received, len=282
+2026-03-06 22:50:21 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:50:28 | LawSearchAgent | INFO | LLM response received, len=266
+2026-03-06 22:50:28 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:50:34 | LawSearchAgent | INFO | LLM response received, len=241
+2026-03-06 22:50:34 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:50:39 | LawSearchAgent | INFO | LLM response received, len=219
+2026-03-06 22:50:39 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-06 22:50:44 | LawSearchAgent | INFO | LLM response received, len=227
+2026-03-08 16:27:41 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 16:29:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:14 | LawSearchAgent | INFO | LLM response received, len=189
+2026-03-08 16:29:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:18 | LawSearchAgent | INFO | LLM response received, len=164
+2026-03-08 16:29:18 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:23 | LawSearchAgent | INFO | LLM response received, len=278
+2026-03-08 16:29:23 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:27 | LawSearchAgent | INFO | LLM response received, len=154
+2026-03-08 16:29:27 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:33 | LawSearchAgent | INFO | LLM response received, len=236
+2026-03-08 16:29:33 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:36 | LawSearchAgent | INFO | LLM response received, len=148
+2026-03-08 16:29:36 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:46 | LawSearchAgent | INFO | LLM response received, len=475
+2026-03-08 16:29:46 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:50 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-08 16:29:50 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:29:57 | LawSearchAgent | INFO | LLM response received, len=266
+2026-03-08 16:29:57 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:30:03 | LawSearchAgent | INFO | LLM response received, len=308
+2026-03-08 16:30:03 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:30:07 | LawSearchAgent | INFO | LLM response received, len=201
+2026-03-08 16:30:07 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:30:12 | LawSearchAgent | INFO | LLM response received, len=236
+2026-03-08 16:42:03 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 16:42:46 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:42:54 | LawSearchAgent | INFO | LLM response received, len=405
+2026-03-08 16:42:54 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:42:58 | LawSearchAgent | INFO | LLM response received, len=102
+2026-03-08 16:42:58 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:02 | LawSearchAgent | INFO | LLM response received, len=219
+2026-03-08 16:43:02 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:06 | LawSearchAgent | INFO | LLM response received, len=154
+2026-03-08 16:43:06 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:13 | LawSearchAgent | INFO | LLM response received, len=313
+2026-03-08 16:43:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:16 | LawSearchAgent | INFO | LLM response received, len=138
+2026-03-08 16:43:16 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:26 | LawSearchAgent | INFO | LLM response received, len=488
+2026-03-08 16:43:26 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:32 | LawSearchAgent | INFO | LLM response received, len=275
+2026-03-08 16:43:32 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:42 | LawSearchAgent | INFO | LLM response received, len=439
+2026-03-08 16:43:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:49 | LawSearchAgent | INFO | LLM response received, len=308
+2026-03-08 16:43:49 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:43:54 | LawSearchAgent | INFO | LLM response received, len=201
+2026-03-08 16:43:54 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:44:00 | LawSearchAgent | INFO | LLM response received, len=236
+2026-03-08 16:44:00 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 16:44:03 | LawSearchAgent | INFO | LLM response received, len=161
+2026-03-08 17:09:08 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 17:10:05 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:09 | LawSearchAgent | INFO | LLM response received, len=164
+2026-03-08 17:10:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:12 | LawSearchAgent | INFO | LLM response received, len=154
+2026-03-08 17:10:12 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:17 | LawSearchAgent | INFO | LLM response received, len=193
+2026-03-08 17:10:17 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:21 | LawSearchAgent | INFO | LLM response received, len=148
+2026-03-08 17:10:21 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:30 | LawSearchAgent | INFO | LLM response received, len=475
+2026-03-08 17:10:30 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:35 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-08 17:10:35 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:40 | LawSearchAgent | INFO | LLM response received, len=234
+2026-03-08 17:10:40 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:46 | LawSearchAgent | INFO | LLM response received, len=294
+2026-03-08 17:10:46 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:50 | LawSearchAgent | INFO | LLM response received, len=176
+2026-03-08 17:10:50 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:10:58 | LawSearchAgent | INFO | LLM response received, len=355
+2026-03-08 17:26:10 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 17:27:47 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:27:51 | LawSearchAgent | INFO | LLM response received, len=156
+2026-03-08 17:27:51 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:27:54 | LawSearchAgent | INFO | LLM response received, len=103
+2026-03-08 17:27:54 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:00 | LawSearchAgent | INFO | LLM response received, len=278
+2026-03-08 17:28:00 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:05 | LawSearchAgent | INFO | LLM response received, len=206
+2026-03-08 17:28:05 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:10 | LawSearchAgent | INFO | LLM response received, len=240
+2026-03-08 17:28:10 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:13 | LawSearchAgent | INFO | LLM response received, len=138
+2026-03-08 17:28:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:22 | LawSearchAgent | INFO | LLM response received, len=451
+2026-03-08 17:28:22 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:27 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-08 17:28:27 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:33 | LawSearchAgent | INFO | LLM response received, len=252
+2026-03-08 17:28:33 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:40 | LawSearchAgent | INFO | LLM response received, len=308
+2026-03-08 17:28:40 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:44 | LawSearchAgent | INFO | LLM response received, len=227
+2026-03-08 17:28:44 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:50 | LawSearchAgent | INFO | LLM response received, len=277
+2026-03-08 17:28:50 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:28:54 | LawSearchAgent | INFO | LLM response received, len=161
+2026-03-08 17:56:11 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:15 | LawSearchAgent | INFO | LLM response received, len=181
+2026-03-08 17:56:15 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:21 | LawSearchAgent | INFO | LLM response received, len=291
+2026-03-08 17:56:21 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:26 | LawSearchAgent | INFO | LLM response received, len=246
+2026-03-08 17:56:26 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:32 | LawSearchAgent | INFO | LLM response received, len=263
+2026-03-08 17:56:32 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:42 | LawSearchAgent | INFO | LLM response received, len=503
+2026-03-08 17:56:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:48 | LawSearchAgent | INFO | LLM response received, len=270
+2026-03-08 17:56:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:52 | LawSearchAgent | INFO | LLM response received, len=210
+2026-03-08 17:56:52 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:56:58 | LawSearchAgent | INFO | LLM response received, len=289
+2026-03-08 17:56:58 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 17:57:01 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-08 21:10:31 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 21:12:53 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 21:16:36 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 21:31:54 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 21:33:15 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:33:19 | LawSearchAgent | INFO | LLM response received, len=181
+2026-03-08 21:33:19 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:33:26 | LawSearchAgent | INFO | LLM response received, len=289
+2026-03-08 21:33:26 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:33:32 | LawSearchAgent | INFO | LLM response received, len=234
+2026-03-08 21:33:32 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:33:40 | LawSearchAgent | INFO | LLM response received, len=271
+2026-03-08 21:33:40 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:33:45 | LawSearchAgent | INFO | LLM response received, len=201
+2026-03-08 21:33:45 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:33:51 | LawSearchAgent | INFO | LLM response received, len=220
+2026-03-08 21:33:51 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:33:57 | LawSearchAgent | INFO | LLM response received, len=298
+2026-03-08 21:33:57 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:34:03 | LawSearchAgent | INFO | LLM response received, len=252
+2026-03-08 21:34:03 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:34:06 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-08 21:37:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:14 | LawSearchAgent | INFO | LLM response received, len=194
+2026-03-08 21:37:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:21 | LawSearchAgent | INFO | LLM response received, len=300
+2026-03-08 21:37:21 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:26 | LawSearchAgent | INFO | LLM response received, len=208
+2026-03-08 21:37:26 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:33 | LawSearchAgent | INFO | LLM response received, len=269
+2026-03-08 21:37:33 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:42 | LawSearchAgent | INFO | LLM response received, len=305
+2026-03-08 21:37:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:48 | LawSearchAgent | INFO | LLM response received, len=250
+2026-03-08 21:37:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:53 | LawSearchAgent | INFO | LLM response received, len=216
+2026-03-08 21:37:53 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:37:59 | LawSearchAgent | INFO | LLM response received, len=252
+2026-03-08 21:37:59 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 21:38:03 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-08 21:54:13 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:41:41 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:51:10 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:51:15 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:51:25 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:51:33 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:53:09 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:53:16 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 22:56:58 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:05 | LawSearchAgent | INFO | LLM response received, len=276
+2026-03-08 22:57:05 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:08 | LawSearchAgent | INFO | LLM response received, len=102
+2026-03-08 22:57:08 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:14 | LawSearchAgent | INFO | LLM response received, len=246
+2026-03-08 22:57:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:18 | LawSearchAgent | INFO | LLM response received, len=162
+2026-03-08 22:57:18 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:23 | LawSearchAgent | INFO | LLM response received, len=210
+2026-03-08 22:57:23 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:27 | LawSearchAgent | INFO | LLM response received, len=138
+2026-03-08 22:57:27 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:40 | LawSearchAgent | INFO | LLM response received, len=531
+2026-03-08 22:57:40 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:44 | LawSearchAgent | INFO | LLM response received, len=189
+2026-03-08 22:57:44 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:57:53 | LawSearchAgent | INFO | LLM response received, len=322
+2026-03-08 22:57:53 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:58:00 | LawSearchAgent | INFO | LLM response received, len=315
+2026-03-08 22:58:00 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:58:05 | LawSearchAgent | INFO | LLM response received, len=219
+2026-03-08 22:58:05 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:58:13 | LawSearchAgent | INFO | LLM response received, len=355
+2026-03-08 22:58:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 22:58:17 | LawSearchAgent | INFO | LLM response received, len=135
+2026-03-08 23:03:21 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:03:27 | LawSearchAgent | INFO | LLM response received, len=181
+2026-03-08 23:03:27 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:03:35 | LawSearchAgent | INFO | LLM response received, len=281
+2026-03-08 23:03:35 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:03:41 | LawSearchAgent | INFO | LLM response received, len=246
+2026-03-08 23:03:41 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:03:50 | LawSearchAgent | INFO | LLM response received, len=269
+2026-03-08 23:03:50 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:04:06 | LawSearchAgent | INFO | LLM response received, len=653
+2026-03-08 23:04:06 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:04:14 | LawSearchAgent | INFO | LLM response received, len=270
+2026-03-08 23:04:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:04:23 | LawSearchAgent | INFO | LLM response received, len=380
+2026-03-08 23:04:23 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:04:32 | LawSearchAgent | INFO | LLM response received, len=339
+2026-03-08 23:04:32 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:04:35 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-08 23:06:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:06:14 | LawSearchAgent | INFO | LLM response received, len=187
+2026-03-08 23:06:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:06:21 | LawSearchAgent | INFO | LLM response received, len=291
+2026-03-08 23:06:21 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:06:28 | LawSearchAgent | INFO | LLM response received, len=246
+2026-03-08 23:06:28 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:06:36 | LawSearchAgent | INFO | LLM response received, len=257
+2026-03-08 23:06:36 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:06:49 | LawSearchAgent | INFO | LLM response received, len=503
+2026-03-08 23:06:49 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:06:54 | LawSearchAgent | INFO | LLM response received, len=174
+2026-03-08 23:06:54 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:07:00 | LawSearchAgent | INFO | LLM response received, len=210
+2026-03-08 23:07:00 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:07:08 | LawSearchAgent | INFO | LLM response received, len=322
+2026-03-08 23:07:08 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:07:11 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-08 23:18:09 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:19:21 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:19:45 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:20:00 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:20:18 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:20:46 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:20:54 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:26:02 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:26:16 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:29:50 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:31:34 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:34 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:34 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:34 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:34 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:37 | LawSearchAgent | INFO | LLM response received, len=103
+2026-03-08 23:31:37 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:40 | LawSearchAgent | INFO | LLM response received, len=154
+2026-03-08 23:31:40 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:41 | LawSearchAgent | INFO | LLM response received, len=148
+2026-03-08 23:31:41 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:42 | LawSearchAgent | INFO | LLM response received, len=280
+2026-03-08 23:31:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:42 | LawSearchAgent | INFO | LLM response received, len=278
+2026-03-08 23:31:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:43 | LawSearchAgent | INFO | LLM response received, len=313
+2026-03-08 23:31:43 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:47 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-08 23:31:47 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:48 | LawSearchAgent | INFO | LLM response received, len=201
+2026-03-08 23:31:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-08 23:31:49 | LawSearchAgent | INFO | LLM response received, len=266
+2026-03-08 23:31:50 | LawSearchAgent | INFO | LLM response received, len=308
+2026-03-08 23:31:51 | LawSearchAgent | INFO | LLM response received, len=459
+2026-03-08 23:31:52 | LawSearchAgent | INFO | LLM response received, len=161
+2026-03-08 23:31:56 | LawSearchAgent | INFO | LLM response received, len=355
+2026-03-08 23:38:21 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:41:32 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:41:41 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:41:51 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:45:04 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:46:56 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:47:33 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:49:17 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:49:20 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:49:43 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:51:54 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:52:03 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:52:24 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:53:10 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:58:27 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:58:54 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:59:02 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-08 23:59:06 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 00:01:00 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 00:04:04 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:04 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:04 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:04 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:04 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:09 | LawSearchAgent | INFO | LLM response received, len=182
+2026-03-09 00:04:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:09 | LawSearchAgent | INFO | LLM response received, len=191
+2026-03-09 00:04:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:10 | LawSearchAgent | INFO | LLM response received, len=246
+2026-03-09 00:04:10 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:12 | LawSearchAgent | INFO | LLM response received, len=316
+2026-03-09 00:04:12 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:04:13 | LawSearchAgent | INFO | LLM response received, len=336
+2026-03-09 00:04:14 | LawSearchAgent | INFO | LLM response received, len=210
+2026-03-09 00:04:15 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-09 00:04:16 | LawSearchAgent | INFO | LLM response received, len=270
+2026-03-09 00:04:17 | LawSearchAgent | INFO | LLM response received, len=269
+2026-03-09 00:06:58 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 00:07:08 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 00:07:25 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 00:07:33 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 00:08:44 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:44 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:44 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:44 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:44 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:48 | LawSearchAgent | INFO | LLM response received, len=136
+2026-03-09 00:08:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:49 | LawSearchAgent | INFO | LLM response received, len=205
+2026-03-09 00:08:49 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:50 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-09 00:08:50 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:51 | LawSearchAgent | INFO | LLM response received, len=278
+2026-03-09 00:08:51 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:52 | LawSearchAgent | INFO | LLM response received, len=148
+2026-03-09 00:08:52 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:55 | LawSearchAgent | INFO | LLM response received, len=423
+2026-03-09 00:08:55 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:58 | LawSearchAgent | INFO | LLM response received, len=297
+2026-03-09 00:08:58 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:58 | LawSearchAgent | INFO | LLM response received, len=235
+2026-03-09 00:08:58 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 00:08:59 | LawSearchAgent | INFO | LLM response received, len=288
+2026-03-09 00:09:00 | LawSearchAgent | INFO | LLM response received, len=219
+2026-03-09 00:09:01 | LawSearchAgent | INFO | LLM response received, len=475
+2026-03-09 00:09:03 | LawSearchAgent | INFO | LLM response received, len=161
+2026-03-09 00:09:04 | LawSearchAgent | INFO | LLM response received, len=266
+2026-03-09 00:15:26 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 00:15:39 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:14:55 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:15:23 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:18:31 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:24:19 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:31:49 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:31:59 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:37:05 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:38:11 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:43:42 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:45:37 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:45:43 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:47:31 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:51:19 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 08:55:30 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:00:39 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:06:56 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:32:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:51 | LawSearchAgent | INFO | LLM response received, len=161
+2026-03-09 09:32:51 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:51 | LawSearchAgent | INFO | LLM response received, len=171
+2026-03-09 09:32:51 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:52 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-09 09:32:52 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:52 | LawSearchAgent | INFO | LLM response received, len=202
+2026-03-09 09:32:52 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 09:32:53 | LawSearchAgent | INFO | LLM response received, len=245
+2026-03-09 09:32:56 | LawSearchAgent | INFO | LLM response received, len=214
+2026-03-09 09:32:57 | LawSearchAgent | INFO | LLM response received, len=231
+2026-03-09 09:32:57 | LawSearchAgent | INFO | LLM response received, len=247
+2026-03-09 09:32:58 | LawSearchAgent | INFO | LLM response received, len=322
+2026-03-09 09:40:03 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:44:00 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:44:07 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:44:21 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:44:26 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:44:37 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:44:48 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:47:06 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:47:36 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:50:23 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:53:58 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:54:31 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:56:08 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:57:49 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 09:58:04 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:00:00 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:00:56 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:01:16 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:13:49 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:15:39 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:18:49 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:19:20 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:20 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:20 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:20 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:20 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:24 | LawSearchAgent | INFO | LLM response received, len=148
+2026-03-09 10:19:24 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:24 | LawSearchAgent | INFO | LLM response received, len=164
+2026-03-09 10:19:24 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:24 | LawSearchAgent | INFO | LLM response received, len=162
+2026-03-09 10:19:24 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:28 | LawSearchAgent | INFO | LLM response received, len=361
+2026-03-09 10:19:28 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:30 | LawSearchAgent | INFO | LLM response received, len=258
+2026-03-09 10:19:30 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:19:30 | LawSearchAgent | INFO | LLM response received, len=275
+2026-03-09 10:19:31 | LawSearchAgent | INFO | LLM response received, len=299
+2026-03-09 10:19:31 | LawSearchAgent | INFO | LLM response received, len=480
+2026-03-09 10:19:33 | LawSearchAgent | INFO | LLM response received, len=227
+2026-03-09 10:19:37 | LawSearchAgent | INFO | LLM response received, len=308
+2026-03-09 10:32:42 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:40:10 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 10:42:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:13 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:17 | LawSearchAgent | INFO | LLM response received, len=190
+2026-03-09 10:42:17 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:17 | LawSearchAgent | INFO | LLM response received, len=204
+2026-03-09 10:42:18 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:18 | LawSearchAgent | INFO | LLM response received, len=239
+2026-03-09 10:42:18 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:18 | LawSearchAgent | INFO | LLM response received, len=248
+2026-03-09 10:42:18 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 10:42:22 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-09 10:42:22 | LawSearchAgent | INFO | LLM response received, len=226
+2026-03-09 10:42:22 | LawSearchAgent | INFO | LLM response received, len=468
+2026-03-09 10:42:23 | LawSearchAgent | INFO | LLM response received, len=282
+2026-03-09 10:42:24 | LawSearchAgent | INFO | LLM response received, len=258
+2026-03-09 10:43:35 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 14:42:00 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 14:42:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:42 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:47 | LawSearchAgent | INFO | LLM response received, len=181
+2026-03-09 14:42:47 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:48 | LawSearchAgent | INFO | LLM response received, len=246
+2026-03-09 14:42:48 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:49 | LawSearchAgent | INFO | LLM response received, len=269
+2026-03-09 14:42:49 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:49 | LawSearchAgent | INFO | LLM response received, len=291
+2026-03-09 14:42:49 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:42:52 | LawSearchAgent | INFO | LLM response received, len=202
+2026-03-09 14:42:52 | LawSearchAgent | INFO | LLM response received, len=99
+2026-03-09 14:42:54 | LawSearchAgent | INFO | LLM response received, len=455
+2026-03-09 14:42:55 | LawSearchAgent | INFO | LLM response received, len=332
+2026-03-09 14:42:57 | LawSearchAgent | INFO | LLM response received, len=330
+2026-03-09 14:51:43 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 14:52:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:52:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:52:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:52:09 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 14:52:14 | LawSearchAgent | INFO | LLM response received, len=196
+2026-03-09 14:52:14 | LawSearchAgent | INFO | LLM response received, len=220
+2026-03-09 14:52:15 | LawSearchAgent | INFO | LLM response received, len=236
+2026-03-09 14:52:15 | LawSearchAgent | INFO | LLM response received, len=220
+2026-03-09 15:21:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 15:21:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 15:21:14 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 15:21:19 | LawSearchAgent | INFO | LLM response received, len=181
+2026-03-09 15:21:20 | LawSearchAgent | INFO | LLM response received, len=238
+2026-03-09 15:21:21 | LawSearchAgent | INFO | LLM response received, len=257
+2026-03-09 15:21:57 | LawSearchAgent | WARNING | RAG retriever not available: RAG is disabled in configuration. Continuing without RAG.
+2026-03-09 15:31:25 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 15:31:25 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 15:31:25 | LawSearchAgent | INFO | Calling deepseek-chat via deepseek | system_len=32
+2026-03-09 15:31:30 | LawSearchAgent | INFO | LLM response received, len=174
+2026-03-09 15:31:30 | LawSearchAgent | INFO | LLM response received, len=202
+2026-03-09 15:31:31 | LawSearchAgent | INFO | LLM response received, len=265

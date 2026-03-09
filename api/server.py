@@ -12,6 +12,7 @@ import asyncio
 from threading import Thread
 from queue import Queue
 from queue import Empty as QueueEmpty
+from pathlib import Path
 
 from core.config_manager import get_config_manager
 from core.logger import get_logger
@@ -352,14 +353,14 @@ async def audit_contract_stream(file: UploadFile = File(...)):
     file_content = await file.read()
 
     # Extract contract text immediately to send to frontend
-    from core.file_handler import FileHandler
+    from utils.file_handler import FileHandler
     file_handler = FileHandler()
     import tempfile
-    with tempfile.NamedTemporaryFile(delete=False, suffix=Path(filename).suffix) as tmp:
+    with tempfile.NamedTemporaryFile(delete=False, suffix=Path(file.filename).suffix) as tmp:
         tmp.write(file_content)
         tmp_path = tmp.name
     try:
-        contract_text = file_handler.extract_text(tmp_path)
+        contract_text = file_handler.extract_text(Path(tmp_path))
     finally:
         import os
         os.unlink(tmp_path)

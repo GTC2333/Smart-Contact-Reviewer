@@ -107,7 +107,14 @@ class LawSearchStep(PipelineStep):
                 )
 
         # Sort results by clause_id to maintain order
-        law_results.sort(key=lambda x: int(x.get("clause_id", 0)) if x.get("clause_id", "").isdigit() else 0)
+        def get_sort_key(x):
+            clause_id = x.get("clause_id", 0)
+            if isinstance(clause_id, int):
+                return clause_id
+            if isinstance(clause_id, str) and clause_id.isdigit():
+                return int(clause_id)
+            return 0
+        law_results.sort(key=get_sort_key)
 
         self._report_progress(45, "法律依据检索完成")
         context["law_results"] = law_results
