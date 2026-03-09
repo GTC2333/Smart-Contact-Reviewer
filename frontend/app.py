@@ -1078,6 +1078,19 @@ st.markdown("""
         border: 1px solid var(--color-border) !important;
         border-radius: var(--radius-sm);
     }
+
+    /* 审核过程中显示的合同原文区域 */
+    .contract-text-during-audit {
+        background: var(--color-bg-card);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        margin: 1rem 0;
+        border: 1px solid var(--color-border-light);
+    }
+
+    .contract-text-during-audit .stMarkdown {
+        margin-bottom: 0.5rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -1351,6 +1364,7 @@ elif st.session_state.current_view == "session":
                                 contract_text = data.get("text", "")
                                 st.session_state.pending_contract_text = contract_text
                                 with contract_text_placeholder.container():
+                                    st.markdown('<div class="contract-text-during-audit">', unsafe_allow_html=True)
                                     st.markdown("### 📄 合同原文")
                                     st.text_area(
                                         "原始合同文本",
@@ -1360,6 +1374,7 @@ elif st.session_state.current_view == "session":
                                         key="contract_text_during_audit",
                                         label_visibility="collapsed"
                                     )
+                                    st.markdown("</div>", unsafe_allow_html=True)
                                     st.markdown("---")
 
                             elif event_type == "complete":
