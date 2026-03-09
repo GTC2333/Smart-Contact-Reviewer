@@ -223,10 +223,35 @@ st.markdown("""
         --font-sans: 'Noto Sans SC', sans-serif;
         --font-mono: 'JetBrains Mono', monospace;
 
+        /* 字体大小系统 */
+        --font-size-xs: 0.7rem;
+        --font-size-sm: 0.8rem;
+        --font-size-base: 0.9rem;
+        --font-size-md: 1rem;
+        --font-size-lg: 1.1rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 2rem;
+
         /* 过渡 */
         --transition-fast: 0.2s ease;
         --transition-normal: 0.3s ease;
         --transition-slow: 0.4s ease;
+    }
+
+    /* 全局字体 */
+    html, body, .stApp {
+        font-family: var(--font-sans);
+        font-size: var(--font-size-base);
+        color: var(--color-text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* 所有文字元素基础字体大小 */
+    p, span, div {
+        font-size: var(--font-size-base);
+        line-height: 1.6;
     }
 
     /* Main layout */
