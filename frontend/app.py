@@ -314,6 +314,86 @@ st.markdown("""
         font-weight: 500;
     }
 
+    /* ==================== 组件字体样式 ==================== */
+    /* 卡片内部字体 */
+    .card {
+        font-size: var(--font-size-base);
+    }
+
+    .card-title {
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        font-size: var(--font-size-base);
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+    }
+
+    /* 条款卡片 */
+    .clause-card {
+        font-size: var(--font-size-base);
+    }
+
+    .clause-title {
+        font-size: var(--font-size-md);
+        font-weight: 600;
+        color: var(--color-text-primary);
+    }
+
+    .clause-content {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+        line-height: 1.5;
+        margin-top: 0.5rem;
+    }
+
+    /* 风险详情 */
+    .risk-detail {
+        font-size: var(--font-size-sm);
+    }
+
+    .risk-issue {
+        font-weight: 500;
+        font-size: var(--font-size-base);
+    }
+
+    .risk-suggestion {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+    }
+
+    /* 统计数字 */
+    .stat-number {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-3xl);
+        font-weight: 500;
+    }
+
+    .stat-label {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+    }
+
+    /* 按钮文字 */
+    .stButton > button {
+        font-size: var(--font-size-base);
+        font-weight: 500;
+    }
+
+    /* 输入框 */
+    .stTextInput > div > div > input,
+    .stTextArea > div > div > textarea {
+        font-size: var(--font-size-base);
+    }
+
+    /* 下拉菜单 */
+    .stSelectbox > div > div > div {
+        font-size: var(--font-size-base);
+    }
+
     /* Main layout */
     .main .block-container {
         padding-top: 2rem;
