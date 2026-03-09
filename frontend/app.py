@@ -5,6 +5,7 @@ Features session history management and multi-tab interface.
 import streamlit as st
 import requests
 import json
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, List, Optional
@@ -31,11 +32,46 @@ def get_api_base() -> str:
     return f"http://{backend_cfg.get('host', '127.0.0.1')}:{backend_cfg.get('port', 8000)}"
 
 
+def check_api_available() -> bool:
+    """Check if API is available."""
+    try:
+        url = f"{get_api_base()}/health"
+        response = requests.get(url, timeout=5)
+        return response.status_code == 200
+    except Exception:
+        return False
+
+
 def call_api_audit(file_content: bytes, filename: str) -> Dict:
     """Call audit API with file."""
     url = f"{get_api_base()}{backend_cfg.get('endpoint_audit', '/audit')}"
     files = {"file": (filename, file_content)}
-    response = requests.post(url, files=files, timeout=180)
+    response = requests.post(url, files=files, timeout=300)
+    response.raise_for_status()
+    return response.json()
+
+
+def call_api_audit_async(file_content: bytes, filename: str) -> Dict:
+    """Call async audit API."""
+    url = f"{get_api_base()}/audit/async"
+    files = {"file": (filename, file_content)}
+    response = requests.post(url, files=files, timeout=30)
+    response.raise_for_status()
+    return response.json()
+
+
+def call_api_audit_stream(file_content: bytes, filename: str):
+    """Call streaming audit API."""
+    url = f"{get_api_base()}/audit/stream"
+    files = {"file": (filename, file_content)}
+    response = requests.post(url, files=files, stream=True, timeout=300)
+    return response
+
+
+def call_api_task_status(task_id: str) -> Dict:
+    """Get task status."""
+    url = f"{get_api_base()}/tasks/{task_id}"
+    response = requests.get(url, timeout=10)
     response.raise_for_status()
     return response.json()
 
@@ -43,7 +79,7 @@ def call_api_audit(file_content: bytes, filename: str) -> Dict:
 def call_api_sessions() -> List[Dict]:
     """Get all sessions."""
     url = f"{get_api_base()}/sessions"
-    response = requests.get(url, timeout=30)
+    response = requests.get(url, timeout=10)
     response.raise_for_status()
     return response.json().get("sessions", [])
 
@@ -51,7 +87,7 @@ def call_api_sessions() -> List[Dict]:
 def call_api_session(session_id: str) -> Dict:
     """Get a specific session."""
     url = f"{get_api_base()}/sessions/{session_id}"
-    response = requests.get(url, timeout=30)
+    response = requests.get(url, timeout=10)
     response.raise_for_status()
     return response.json()
 
@@ -84,13 +120,27 @@ if "sessions" not in st.session_state:
 if "audit_result" not in st.session_state:
     st.session_state.audit_result = None
 
+if "sessions_loaded" not in st.session_state:
+    st.session_state.sessions_loaded = False
+
+if "task_id" not in st.session_state:
+    st.session_state.task_id = None
+
+if "pending_rename_session_id" not in st.session_state:
+    st.session_state.pending_rename_session_id = None
+
+if "pending_rename_contract_name" not in st.session_state:
+    st.session_state.pending_rename_contract_name = None
+
 
 def refresh_sessions():
     """Refresh sessions list from API."""
     try:
         st.session_state.sessions = call_api_sessions()
+        st.session_state.sessions_loaded = True
     except Exception:
         st.session_state.sessions = []
+        st.session_state.sessions_loaded = False
 
 
 def navigate_to_home():
@@ -205,18 +255,49 @@ st.markdown("""
         background: transparent;
     }
 
-    /* 侧边栏标题 */
+    # 侧边栏标题
     .sidebar-title {
         font-family: var(--font-serif);
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--color-text-primary);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #3D405B;
         padding: 1rem 0;
         text-align: center;
-        background: linear-gradient(135deg, var(--color-accent) 0%, #B8956A 100%);
+        letter-spacing: 2px;
+    }
+
+    /* 侧边栏头部区域 */
+    .sidebar-header {
+        background: linear-gradient(135deg, #FFFDF9 0%, #F5F0E8 100%);
+        padding: 1.5rem 1rem;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        text-align: center;
+        margin: -1rem -1rem 1rem -1rem;
+        border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .sidebar-logo {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .sidebar-brand {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #3D405B 0%, #6B705C 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        letter-spacing: 1px;
+    }
+
+    .sidebar-subtitle {
+        font-size: 0.75rem;
+        color: var(--color-text-muted);
+        margin-top: 0.25rem;
+        font-weight: 400;
     }
 
     /* Cards */
@@ -476,6 +557,179 @@ st.markdown("""
     .main-content {
         animation: fadeIn 0.4s ease;
     }
+
+    /* 增强进度界面 */
+    .progress-container {
+        background: var(--color-bg-card);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        box-shadow: var(--shadow-md);
+        margin: 2rem 0;
+    }
+
+    .progress-header {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: var(--color-text-primary);
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .progress-steps {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem 0;
+        position: relative;
+    }
+
+    .progress-step {
+        text-align: center;
+        flex: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    .progress-step-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--color-border-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.5rem;
+        transition: all var(--transition-normal);
+    }
+
+    .progress-step.active .progress-step-icon {
+        background: var(--color-accent);
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .progress-step.completed .progress-step-icon {
+        background: var(--color-risk-low);
+        color: white;
+    }
+
+    /* 脉冲动画 */
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(212, 165, 116, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(212, 165, 116, 0); }
+    }
+
+    .progress-step.active .progress-step-icon {
+        animation: pulse 2s infinite;
+    }
+
+    /* 侧边栏项目滑入动画 */
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* 卡片悬停效果增强 */
+    .clause-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .clause-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+    }
+
+    .clause-card:hover::before {
+        opacity: 1;
+    }
+
+    /* 风险卡片渐变背景 */
+    .risk-card-gradient {
+        background: linear-gradient(135deg, #FFFDF9 0%, #F5F0E8 100%);
+    }
+
+    /* 按钮波纹效果 */
+    .stButton > button {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stButton > button::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255,255,255,0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+    }
+
+    .stButton > button:active::after {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* 上传区域动画 */
+    .upload-area {
+        position: relative;
+    }
+
+    .upload-area::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 2px dashed var(--color-accent);
+        border-radius: var(--radius-lg);
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+    }
+
+    .upload-area:hover::after {
+        opacity: 1;
+    }
+
+    /* 成功/错误提示增强 */
+    .stSuccess, .stError {
+        animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Tab 选中动画 */
+    .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        transition: all 0.2s ease;
+    }
+
+    /* 会话项动画类 */
+    .session-item-animated {
+        animation: slideInLeft 0.3s ease forwards;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -483,50 +737,137 @@ st.markdown("""
 # ==================== Sidebar ====================
 
 with st.sidebar:
-    st.markdown('<p class="sidebar-title">🧠 智能合同审核系统</p>')
-    st.markdown("---")
+    st.markdown("""
+    <div class="sidebar-header">
+        <span class="sidebar-logo">⚖️</span>
+        <div class="sidebar-brand">智能合同审核</div>
+        <div class="sidebar-subtitle">Smart Contract Review</div>
+    </div>
+    """, unsafe_allow_html=True)
 
     # New audit button
-    if st.button("➕ 新建审核", use_container_width=True, key="btn_new_audit"):
+    if st.button("+ 新建审核", use_container_width=True, key="btn_new_audit"):
         navigate_to_home()
 
     st.markdown("---")
 
-    # Load sessions
-    try:
+    # Session history - 只在需要时加载
+    st.markdown("### 审核历史")
+
+    # 手动刷新按钮
+    if st.button("🔄 刷新列表", key="btn_refresh_sessions"):
         refresh_sessions()
-    except Exception:
-        pass
+        st.session_state.sessions_loaded = True
 
-    # Session history
-    st.markdown("### 📋 审核历史")
-
-    if not st.session_state.sessions:
+    if not st.session_state.sessions_loaded:
+        st.caption("点击刷新按钮加载历史记录")
+    elif not st.session_state.sessions:
         st.caption("暂无审核记录")
     else:
-        for session in st.session_state.sessions[:20]:
+        for idx, session in enumerate(st.session_state.sessions[:20]):
+            # Add staggered animation delay based on index
+            animation_delay = min(idx * 0.05, 0.5)  # Cap at 0.5s delay
             session_id = session.get("session_id", "")
             contract_name = session.get("contract_name", "未命名")
             created_at = session.get("created_at", "")[:10]
             risk_count = session.get("risk_count", 0)
 
+            # Add animation wrapper for session item
+            st.markdown(f"""
+            <div class="session-item-animated" style="animation-delay: {animation_delay}s;">
+            """, unsafe_allow_html=True)
+
             # Create columns for session item
-            col1, col2 = st.columns([1, 4])
+            col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
             with col1:
                 st.markdown(f"<span class='risk-badge' style='font-size: 0.75rem;'>{risk_count}风险</span>", unsafe_allow_html=True)
             with col2:
-                is_active = st.session_state.current_session_id == session_id
-                if st.button(f"📄 {contract_name[:12]}{'...' if len(contract_name) > 12 else ''}", key=f"session_{session_id}"):
+                if st.button(f"{contract_name[:12]}{'...' if len(contract_name) > 12 else ''}", key=f"session_{session_id}"):
                     navigate_to_session(session_id)
+            with col3:
+                if st.button("🗑️", key=f"delete_{session_id}", help="删除此会话"):
+                    st.session_state.pending_delete_session_id = session_id
+                    st.session_state.pending_delete_contract_name = contract_name
+                    st.rerun()
+            with col4:
+                if st.button("✏️", key=f"rename_{session_id}", help="重命名此会话"):
+                    st.session_state.pending_rename_session_id = session_id
+                    st.session_state.pending_rename_contract_name = contract_name
+                    st.rerun()
 
-            st.caption(f"📅 {created_at}")
+            st.caption(f"{created_at}")
+            st.markdown("</div>", unsafe_allow_html=True)
             st.markdown("---")
+
+        # Confirmation dialog for delete
+        if "pending_delete_session_id" in st.session_state and st.session_state.pending_delete_session_id:
+            st.markdown("### 确认删除")
+            st.warning(f"确定要删除会话 \"{st.session_state.pending_delete_contract_name}\" 吗？此操作无法撤销。")
+
+            col_confirm, col_cancel = st.columns(2)
+            with col_confirm:
+                if st.button("确认删除", key="confirm_delete_btn", type="primary"):
+                    delete_session_and_refresh(st.session_state.pending_delete_session_id)
+                    st.session_state.pending_delete_session_id = None
+                    st.session_state.pending_delete_contract_name = None
+            with col_cancel:
+                if st.button("取消", key="cancel_delete_btn"):
+                    st.session_state.pending_delete_session_id = None
+                    st.session_state.pending_delete_contract_name = None
+                    st.rerun()
+
+        # Rename dialog
+        if "pending_rename_session_id" in st.session_state and st.session_state.pending_rename_session_id:
+            st.markdown("### 重命名会话")
+            new_name = st.text_input("输入新名称", value=st.session_state.pending_rename_contract_name, key="rename_input")
+
+            col_confirm_rename, col_cancel_rename = st.columns(2)
+            with col_confirm_rename:
+                if st.button("确认", key="confirm_rename_btn", type="primary"):
+                    if not new_name or not new_name.strip():
+                        st.error("名称不能为空")
+                    elif new_name.strip() == st.session_state.pending_rename_contract_name:
+                        st.warning("名称未更改")
+                        # Clear state and rerun
+                        del st.session_state.pending_rename_session_id
+                        del st.session_state.pending_rename_contract_name
+                        st.rerun()
+                    else:
+                        try:
+                            success = call_api_rename_session(
+                                st.session_state.pending_rename_session_id,
+                                new_name.strip()
+                            )
+                            if success:
+                                st.success(f"已重命名为: {new_name.strip()}")
+                                refresh_sessions()
+                                del st.session_state.pending_rename_session_id
+                                del st.session_state.pending_rename_contract_name
+                                st.rerun()
+                            else:
+                                st.error("重命名失败")
+                        except Exception as e:
+                            st.error(f"重命名失败: {str(e)}")
+            with col_cancel_rename:
+                if st.button("取消", key="cancel_rename_btn"):
+                    st.session_state.pending_rename_session_id = None
+                    st.session_state.pending_rename_contract_name = None
+                    st.rerun()
 
 
 # ==================== Home Page ====================
 
 if st.session_state.current_view == "home":
+    # 检查 API 可用性
+    api_available = check_api_available()
+
     st.markdown("## 欢迎使用智能合同审核系统")
+
+    if not api_available:
+        st.error("⚠️ 后端服务未启动或无法连接")
+        st.info("请确保后端 API 服务正在运行，然后刷新页面")
+        st.code("启动后端: uvicorn api.server:app --host 127.0.0.1 --port 8000 --reload", language="bash")
+        st.stop()
 
     # Sample contracts directory
     SAMPLES_DIR = config.project_root / "data" / "samples"
@@ -549,20 +890,26 @@ if st.session_state.current_view == "home":
         )
 
         if uploaded_file is not None:
-            with st.spinner("正在审核合同..."):
-                try:
-                    file_bytes = uploaded_file.read()
-                    filename = uploaded_file.name
-                    result = call_api_audit(file_bytes, filename)
-                    st.session_state.audit_result = result
-                    st.session_state.current_session_id = result.get("session_id")
+            # Use streaming API
+            file_bytes = uploaded_file.read()
+            filename = uploaded_file.name
+            try:
+                response = call_api_audit_stream(file_bytes, filename)
+
+                if response.status_code != 200:
+                    st.error(f"审核启动失败: {response.text}")
+                else:
+                    # Enter session view with streaming mode
                     st.session_state.current_view = "session"
+                    st.session_state.stream_response = response
+                    st.session_state.audit_result = None
                     st.rerun()
-                except requests.exceptions.RequestException as e:
-                    st.error(f"API 调用失败：{str(e)}")
-                    st.info("请确保后端 API 服务正在运行")
-                except Exception as e:
-                    st.error(f"处理失败：{str(e)}")
+
+            except requests.exceptions.RequestException as e:
+                st.error(f"API 调用失败：{str(e)}")
+                st.info("请确保后端 API 服务正在运行")
+            except Exception as e:
+                st.error(f"处理失败：{str(e)}")
 
     with col2:
         st.markdown("### 📁 示例合同")
@@ -572,17 +919,21 @@ if st.session_state.current_view == "home":
             sample_path = SAMPLES_DIR / filename
             if sample_path.exists():
                 if st.button(f"📄 {name}", use_container_width=True, key=f"sample_{filename}"):
-                    with st.spinner(f"正在审核{name}..."):
-                        try:
-                            file_bytes = sample_path.read_bytes()
-                            result = call_api_audit(file_bytes, filename)
-                            st.session_state.audit_result = result
-                            st.session_state.current_session_id = result.get("session_id")
+                    try:
+                        file_bytes = sample_path.read_bytes()
+                        # Use streaming API
+                        response = call_api_audit_stream(file_bytes, filename)
+
+                        if response.status_code != 200:
+                            st.error(f"审核启动失败: {response.text}")
+                        else:
                             st.session_state.current_view = "session"
+                            st.session_state.stream_response = response
+                            st.session_state.audit_result = None
                             refresh_sessions()
                             st.rerun()
-                        except Exception as e:
-                            st.error(f"审核失败：{str(e)}")
+                    except Exception as e:
+                        st.error(f"审核失败：{str(e)}")
             else:
                 st.caption(f"文件未找到：{filename}")
 
@@ -591,6 +942,145 @@ if st.session_state.current_view == "home":
 
 elif st.session_state.current_view == "session":
     result = st.session_state.audit_result
+
+    # Check if we have a streaming response
+    if st.session_state.get("stream_response"):
+        response = st.session_state.stream_response
+
+        try:
+            # Process streaming response
+            buffer = ""
+
+            # Create placeholders for real-time updates
+            progress_bar = st.progress(0)
+            status_text = st.empty()
+
+            for chunk in response.iter_content(chunk_size=1024):
+                if chunk:
+                    buffer += chunk.decode("utf-8")
+
+                    # Process SSE events
+                    while "data:" in buffer:
+                        start = buffer.find("data:")
+                        end = buffer.find("\n\n", start)
+                        if end == -1:
+                            break
+
+                        event_data = buffer[start:end]
+                        buffer = buffer[end+2:]
+
+                        # Parse JSON
+                        try:
+                            data = json.loads(event_data.replace("data:", ""))
+                            event_type = data.get("type")
+
+                            if event_type == "progress":
+                                progress = data.get("progress", 0)
+                                message = data.get("message", "")
+                                progress_bar.progress(progress / 100)
+                                status_text.info(f"**{message}**")
+
+                            elif event_type == "complete":
+                                result = data.get("result", {})
+                                session_id = data.get("session_id")
+                                st.session_state.audit_result = result
+                                st.session_state.current_session_id = session_id
+                                del st.session_state["stream_response"]
+                                refresh_sessions()
+                                st.rerun()
+
+                            elif event_type == "error":
+                                error = data.get("error", "Unknown error")
+                                st.error(f"审核失败: {error}")
+                                del st.session_state["stream_response"]
+                                st.rerun()
+
+                        except json.JSONDecodeError:
+                            pass
+
+        except Exception as e:
+            st.error(f"流式读取失败: {str(e)}")
+            del st.session_state["stream_response"]
+            st.rerun()
+
+    # 检测是否有进行中的任务 (polling mode - for backwards compatibility)
+    elif st.session_state.get("task_id") and not st.session_state.get("audit_result"):
+        task_id = st.session_state.task_id
+
+        with st.spinner("正在获取任务状态..."):
+            task_status = call_api_task_status(task_id)
+
+        status = task_status.get("status")
+        progress = task_status.get("progress", 0)
+
+        if status == "completed":
+            # 任务完成，获取结果
+            result_data = task_status.get("result", {})
+            st.session_state.audit_result = result_data.get("result")
+            st.session_state.current_session_id = result_data.get("session_id")
+            del st.session_state["task_id"]
+            st.rerun()
+        elif status == "failed":
+            st.error(f"审核失败: {task_status.get('error', '未知错误')}")
+            if st.button("返回首页"):
+                navigate_to_home()
+            st.stop()
+        else:
+            # Show progress container
+            st.markdown("""
+            <div class="progress-container">
+                <div class="progress-header">🔄 正在审核合同</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            # Determine current step based on progress
+            if progress < 20:
+                current_step = 0  # Parsing
+            elif progress < 50:
+                current_step = 1  # Law search
+            elif progress < 75:
+                current_step = 2  # Risk analysis
+            else:
+                current_step = 3  # Corrections
+
+            steps = [
+                ("📝", "解析合同", current_step == 0),
+                ("🔍", "检索依据", current_step == 1),
+                ("⚠️", "分析风险", current_step == 2),
+                ("💡", "生成建议", current_step == 3),
+            ]
+
+            # Build step HTML
+            step_html = '<div class="progress-steps">'
+            for i, (icon, label, is_active) in enumerate(steps):
+                if i < current_step:
+                    step_class = "completed"
+                elif i == current_step:
+                    step_class = "active"
+                else:
+                    step_class = ""
+                step_html += f'''
+                <div class="progress-step {step_class}">
+                    <div class="progress-step-icon">{icon}</div>
+                    <div>{label}</div>
+                </div>
+                '''
+            step_html += '</div>'
+            st.markdown(step_html, unsafe_allow_html=True)
+
+            st.progress(progress / 100)
+
+            # Progress message
+            message = task_status.get("message", "")
+            if message:
+                st.info(f"**{message}**")
+
+            # Show percentage
+            st.markdown(f"<div style='text-align: center; font-size: 20px; color: #666;'>{progress}%</div>", unsafe_allow_html=True)
+
+            # 自动刷新
+            time.sleep(2)
+            st.rerun()
 
     if not result:
         st.error("无法加载审核结果")
@@ -604,9 +1094,10 @@ elif st.session_state.current_view == "session":
     clauses = result.get("clauses", [])
     corrections = result.get("corrections", [])
 
-    high = len([a for a in annotations if a.get("severity", "").lower() == "high"])
-    medium = len([a for a in annotations if a.get("severity", "").lower() == "medium"])
-    low = len([a for a in annotations if a.get("severity", "").lower() == "low"])
+    # Risk severity is in Chinese: 高/中/低
+    high = len([a for a in annotations if a.get("severity", "").strip() == "高"])
+    medium = len([a for a in annotations if a.get("severity", "").strip() == "中"])
+    low = len([a for a in annotations if a.get("severity", "").strip() == "低"])
 
     # Header with contract name
     contract_name = result.get("contract_name", "未命名合同")
