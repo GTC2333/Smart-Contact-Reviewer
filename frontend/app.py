@@ -1032,6 +1032,27 @@ st.markdown("""
         padding: 0.25rem 0.5rem !important;
         font-size: 0.75rem !important;
     }
+
+    /* 深色模式支持 */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-bg-main: #1A1A2E;
+            --color-bg-card: #242438;
+            --color-text-primary: #E8E8E8;
+            --color-text-secondary: #A0A0A0;
+            --color-text-muted: #707070;
+            --color-border: #3A3A4A;
+            --color-border-light: #2A2A3A;
+        }
+
+        [data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #242438 0%, #1A1A2E 100%);
+        }
+
+        .sidebar-header {
+            background: linear-gradient(135deg, #242438 0%, #1A1A2E 100%);
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
