@@ -785,11 +785,9 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     # New audit button
-    st.markdown("""
-<button class="sidebar-btn sidebar-btn-primary" onclick="window.location.href='?page=home'">
-    <span>➕</span> 新建审核
-</button>
-""", unsafe_allow_html=True)
+    if st.button("➕ 新建审核", use_container_width=True, key="btn_new_audit_sidebar"):
+        navigate_to_home()
+        st.rerun()
 
     st.markdown("---")
 
