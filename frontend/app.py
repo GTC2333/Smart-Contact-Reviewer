@@ -787,7 +787,7 @@ with st.sidebar:
     # New audit button
     st.markdown("""
 <button class="sidebar-btn sidebar-btn-primary" onclick="window.location.href='?page=home'">
-    <span>+</span> 新建审核
+    <span>➕</span> 新建审核
 </button>
 """, unsafe_allow_html=True)
 
