@@ -300,6 +300,45 @@ st.markdown("""
         font-weight: 400;
     }
 
+    /* 侧边栏按钮 */
+    .sidebar-btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-md);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all var(--transition-normal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar-btn-primary {
+        background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+        color: white;
+        border: none;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        background: linear-gradient(135deg, var(--color-accent-hover) 0%, #B8956A 100%);
+    }
+
+    .sidebar-btn-secondary {
+        background: var(--color-bg-card);
+        color: var(--color-text-primary);
+        border: 1px solid var(--color-border);
+    }
+
+    .sidebar-btn-secondary:hover {
+        background: rgba(212, 165, 116, 0.1);
+        border-color: var(--color-accent);
+    }
+
     /* Cards */
     .card {
         background: var(--color-bg-card);
@@ -746,8 +785,11 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     # New audit button
-    if st.button("+ 新建审核", use_container_width=True, key="btn_new_audit"):
-        navigate_to_home()
+    st.markdown("""
+<button class="sidebar-btn sidebar-btn-primary" onclick="window.location.href='?page=home'">
+    <span>+</span> 新建审核
+</button>
+""", unsafe_allow_html=True)
 
     st.markdown("---")
 
