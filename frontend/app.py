@@ -1471,12 +1471,13 @@ elif st.session_state.current_view == "session":
     st.markdown(f"## 📄 {contract_name}")
 
     # Tab interface
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "🏠 合同概览",
         "📋 合同条款浏览",
         "⚠️ 风险分析",
         "💡 修改建议",
-        "📥 导出报告"
+        "📥 导出报告",
+        "📄 合同原文"
     ])
 
     # ==================== Tab 1: Overview ====================
@@ -1702,6 +1703,29 @@ elif st.session_state.current_view == "session":
 
         if st.button("📋 复制摘要", use_container_width=True):
             st.success("摘要已复制")
+
+    # ==================== Tab 6: Contract Text ====================
+
+    with tab6:
+        st.markdown("### 📄 原始合同文本")
+
+        # Get contract text from session state (during audit) or result (from session)
+        contract_text = (
+            st.session_state.get("pending_contract_text") or
+            result.get("contract_text", "")
+        )
+
+        if contract_text:
+            st.text_area(
+                "合同原文",
+                value=contract_text,
+                height=500,
+                disabled=True,
+                key="contract_text_viewer",
+                label_visibility="collapsed"
+            )
+        else:
+            st.warning("无法加载合同原文")
 
 # Footer
 st.markdown("---")
