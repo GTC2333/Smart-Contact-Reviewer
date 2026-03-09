@@ -794,6 +794,100 @@ st.markdown("""
     .session-item-animated {
         animation: slideInLeft 0.3s ease forwards;
     }
+
+    /* 会话历史列表 */
+    .session-list-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--color-border-light);
+        margin-bottom: 0.75rem;
+    }
+
+    .session-list-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .session-count {
+        background: var(--color-bg-card);
+        padding: 2px 8px;
+        border-radius: var(--radius-full);
+        font-size: 0.7rem;
+        color: var(--color-text-muted);
+    }
+
+    .session-item {
+        padding: 0.875rem 1rem;
+        border-radius: var(--radius-md);
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        border: 1px solid transparent;
+        background: var(--color-bg-card);
+    }
+
+    .session-item:hover {
+        background: rgba(212, 165, 116, 0.08);
+        border-color: var(--color-border);
+        transform: translateX(4px);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .session-item.active {
+        background: rgba(212, 165, 116, 0.12);
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .session-title {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-text-primary);
+        margin-bottom: 0.25rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .session-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--color-text-muted);
+    }
+
+    .session-date {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .session-empty {
+        text-align: center;
+        padding: 2rem 1rem;
+        color: var(--color-text-muted);
+        font-size: 0.85rem;
+    }
+
+    /* 会话项内的按钮容器 */
+    .session-actions {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    .session-actions button {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.75rem !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -819,52 +913,66 @@ with st.sidebar:
     st.markdown("---")
 
     # Session history - 只在需要时加载
-    st.markdown("### 审核历史")
+    # Session history header
+    session_count = len(st.session_state.sessions) if st.session_state.sessions else 0
+    st.markdown(f"""
+    <div class="session-list-header">
+        <span class="session-list-title">📁 审核历史</span>
+        <span class="session-count">{session_count}</span>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # 手动刷新按钮
-    if st.button("🔄 刷新列表", key="btn_refresh_sessions"):
+    # Refresh button (styled smaller)
+    if st.button("🔄 刷新", key="btn_refresh_sessions", help="刷新会话列表"):
         refresh_sessions()
         st.session_state.sessions_loaded = True
 
     if not st.session_state.sessions_loaded:
-        st.caption("点击刷新按钮加载历史记录")
+        st.markdown('<div class="session-empty">点击刷新按钮加载历史记录</div>', unsafe_allow_html=True)
     elif not st.session_state.sessions:
-        st.caption("暂无审核记录")
+        st.markdown('<div class="session-empty">暂无审核记录</div>', unsafe_allow_html=True)
     else:
         for idx, session in enumerate(st.session_state.sessions[:20]):
-            # Add staggered animation delay based on index
-            animation_delay = min(idx * 0.05, 0.5)  # Cap at 0.5s delay
             session_id = session.get("session_id", "")
             contract_name = session.get("contract_name", "未命名")
             created_at = session.get("created_at", "")[:10]
             risk_count = session.get("risk_count", 0)
 
-            # Add animation wrapper for session item
+            # Determine risk level class
+            if risk_count >= 5:
+                risk_class = "risk-high"
+            elif risk_count >= 2:
+                risk_class = "risk-medium"
+            else:
+                risk_class = "risk-low"
+
+            # Session item with inline actions
             st.markdown(f"""
-            <div class="session-item-animated" style="animation-delay: {animation_delay}s;">
+            <div class="session-item">
+                <div class="session-title">{contract_name}</div>
+                <div class="session-meta">
+                    <span class="session-date">📅 {created_at}</span>
+                    <span class="risk-badge {risk_class}">{risk_count}风险</span>
+                </div>
+            </div>
             """, unsafe_allow_html=True)
 
-            # Create columns for session item
-            col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
+            # Action buttons in columns
+            col1, col2 = st.columns([3, 1])
             with col1:
-                st.markdown(f"<span class='risk-badge' style='font-size: 0.75rem;'>{risk_count}风险</span>", unsafe_allow_html=True)
-            with col2:
-                if st.button(f"{contract_name[:12]}{'...' if len(contract_name) > 12 else ''}", key=f"session_{session_id}"):
+                if st.button("打开", key=f"open_{session_id}", help="打开此会话"):
                     navigate_to_session(session_id)
-            with col3:
-                if st.button("🗑️", key=f"delete_{session_id}", help="删除此会话"):
+            with col2:
+                if st.button("🗑️", key=f"delete_{session_id}", help="删除"):
                     st.session_state.pending_delete_session_id = session_id
                     st.session_state.pending_delete_contract_name = contract_name
                     st.rerun()
-            with col4:
-                if st.button("✏️", key=f"rename_{session_id}", help="重命名此会话"):
-                    st.session_state.pending_rename_session_id = session_id
-                    st.session_state.pending_rename_contract_name = contract_name
-                    st.rerun()
 
-            st.caption(f"{created_at}")
-            st.markdown("</div>", unsafe_allow_html=True)
-            st.markdown("---")
+            # Add rename button
+            if st.button("✏️ 重命名", key=f"rename_{session_id}", help="重命名此会话"):
+                st.session_state.pending_rename_session_id = session_id
+                st.session_state.pending_rename_contract_name = contract_name
+                st.rerun()
 
         # Confirmation dialog for delete
         if "pending_delete_session_id" in st.session_state and st.session_state.pending_delete_session_id:
