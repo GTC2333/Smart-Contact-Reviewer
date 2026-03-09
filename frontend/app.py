@@ -1043,6 +1043,15 @@ st.markdown("""
             --color-text-muted: #707070;
             --color-border: #3A3A4A;
             --color-border-light: #2A2A3A;
+
+            /* Accent colors - lighter for dark mode */
+            --color-accent: #E0B88A;
+            --color-accent-hover: #D4A574;
+
+            /* Risk colors - adjusted for dark mode */
+            --color-risk-high: #E89080;
+            --color-risk-medium: #F0C060;
+            --color-risk-low: #90C0A8;
         }
 
         [data-testid="stSidebar"] {
