@@ -1319,19 +1319,7 @@ elif st.session_state.current_view == "session":
             # Create placeholders for real-time updates
             progress_bar = st.progress(0)
             status_text = st.empty()
-
-            # Display contract text if available
-            if st.session_state.get("pending_contract_text"):
-                st.markdown("### 📄 合同原文")
-                st.text_area(
-                    "原始合同文本",
-                    value=st.session_state.pending_contract_text,
-                    height=250,
-                    disabled=True,
-                    key="contract_text_during_audit",
-                    label_visibility="collapsed"
-                )
-                st.markdown("---")
+            contract_text_placeholder = st.empty()
 
             for chunk in response.iter_content(chunk_size=1024):
                 if chunk:
@@ -1359,9 +1347,20 @@ elif st.session_state.current_view == "session":
                                 status_text.info(f"**{message}**")
 
                             elif event_type == "contract_text":
-                                # Store contract text for display
+                                # Display contract text using placeholder
                                 contract_text = data.get("text", "")
                                 st.session_state.pending_contract_text = contract_text
+                                with contract_text_placeholder.container():
+                                    st.markdown("### 📄 合同原文")
+                                    st.text_area(
+                                        "原始合同文本",
+                                        value=contract_text,
+                                        height=250,
+                                        disabled=True,
+                                        key="contract_text_during_audit",
+                                        label_visibility="collapsed"
+                                    )
+                                    st.markdown("---")
 
                             elif event_type == "complete":
                                 result = data.get("result", {})
