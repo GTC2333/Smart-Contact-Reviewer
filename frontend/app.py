@@ -420,7 +420,7 @@ st.markdown("""
         background: transparent;
     }
 
-    # 侧边栏标题
+    /* 侧边栏标题 */
     .sidebar-title {
         font-family: var(--font-serif);
         font-size: 1.4rem;
