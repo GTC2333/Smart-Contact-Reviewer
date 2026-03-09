@@ -33,6 +33,7 @@ class TaskManager:
             "result": None,
             "error": None,
             "progress": 0,
+            "message": "等待处理...",
         }
         self.logger.info(f"Created task {task_id} for {contract_name}")
         return task_id
@@ -47,7 +48,8 @@ class TaskManager:
         status: str,
         result: Optional[Dict] = None,
         error: Optional[str] = None,
-        progress: Optional[int] = None
+        progress: Optional[int] = None,
+        message: Optional[str] = None
     ):
         """Update task status and result."""
         if task_id in self.tasks:
@@ -58,7 +60,9 @@ class TaskManager:
                 self.tasks[task_id]["error"] = error
             if progress is not None:
                 self.tasks[task_id]["progress"] = progress
-            self.logger.info(f"Updated task {task_id}: {status}")
+            if message is not None:
+                self.tasks[task_id]["message"] = message
+            self.logger.info(f"Updated task {task_id}: status={status}, progress={progress}, message={message}")
 
     def list_tasks(self, limit: int = 50) -> list:
         """List recent tasks."""

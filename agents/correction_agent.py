@@ -20,8 +20,7 @@ class CorrectionAgent(BaseAgent):
 
         raw_resp = self._call_llm(
             system=system_prompt,
-            user=user_prompt,
-            response_format={"type": "json_object"}
+            user=user_prompt
         )
         data = self._parse_json(raw_resp["raw"])
 

@@ -35,10 +35,10 @@ class OpenAICompatibleClient(LLMClient):
 
 class AnthropicCompatibleClient(LLMClient):
     """Anthropic Claude client wrapper."""
-    
+
     def __init__(self, client: Any):
         self.client = client
-    
+
     def chat_completion(
         self,
         model: str,
@@ -51,7 +51,7 @@ class AnthropicCompatibleClient(LLMClient):
         """Create chat completion using Anthropic API."""
         system = next((m["content"] for m in messages if m["role"] == "system"), "")
         user_messages = [m for m in messages if m["role"] != "system"]
-        
+
         resp = self.client.messages.create(
             model=model,
             system=system,
@@ -59,7 +59,17 @@ class AnthropicCompatibleClient(LLMClient):
             max_tokens=max_tokens or 1024,
             temperature=temperature,
         )
-        return {"content": resp.content[0].text}
+
+        # Handle different content block types (MiniMax may return ThinkingBlock)
+        content_text = ""
+        for block in resp.content:
+            if hasattr(block, 'text'):
+                content_text += block.text
+            elif hasattr(block, 'thinking'):
+                # Skip thinking blocks or append if needed
+                pass
+
+        return {"content": content_text.strip()}
 
 
 class GeminiCompatibleClient(LLMClient):
@@ -154,12 +164,15 @@ def create_llm_client() -> LLMClient:
         return GeminiCompatibleClient(model)
     
     elif provider == "deepseek":
+        import httpx
         from openai import OpenAI as OpenAIClient
         deepseek_cfg = llm_config.get("deepseek", {})
+        # Create httpx client with custom timeout
+        http_client = httpx.Client(timeout=httpx.Timeout(120.0))
         client = OpenAIClient(
             api_key=deepseek_cfg.get("api_key", ""),
             base_url=deepseek_cfg.get("base_url", "https://api.deepseek.com/v1"),
-            timeout=120,
+            http_client=http_client,
         )
         return OpenAICompatibleClient(client)
     

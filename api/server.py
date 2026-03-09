@@ -3,9 +3,15 @@ FastAPI server for contract audit system.
 Decoupled from main.py, uses service layer.
 """
 from fastapi import FastAPI, File, UploadFile, HTTPException, Query
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, StreamingResponse
 import uvicorn
-from typing import Optional
+from typing import Optional, Dict
+import json
+import uuid
+import asyncio
+from threading import Thread
+from queue import Queue
+from queue import Empty as QueueEmpty
 
 from core.config_manager import get_config_manager
 from core.logger import get_logger
@@ -24,6 +30,9 @@ audit_service = AuditService()
 
 # Initialize session store
 session_store = get_session_store()
+
+# Thread-safe queue for streaming events
+stream_queues: Dict[str, Queue] = {}
 
 
 @app.post(backend_cfg.get("endpoint_audit", "/audit"))
@@ -195,19 +204,23 @@ async def get_recent_metrics(limit: int = Query(10, ge=1, le=50)):
 from api.tasks import task_manager, TaskStatus
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
+from functools import partial
 
 # Background executor for running audits
 executor = ThreadPoolExecutor(max_workers=2)
 
 
 def run_audit_task(task_id: str, file_content: bytes, filename: str):
-    """Run audit in background thread."""
-    try:
-        task_manager.update_task(task_id, TaskStatus.PROCESSING.value, progress=10)
+    """Run audit in background thread with progress updates."""
+    def update_progress(progress: int, message: str):
+        """Callback to update task progress."""
+        task_manager.update_task(task_id, TaskStatus.PROCESSING.value, progress=progress, message=message)
 
-        # Audit contract
-        result = audit_service.audit_from_file(file_content, filename)
-        task_manager.update_task(task_id, TaskStatus.PROCESSING.value, progress=80)
+    try:
+        update_progress(0, "开始审核合同...")
+
+        # Audit contract with progress callback
+        result = audit_service.audit_from_file(file_content, filename, progress_callback=update_progress)
 
         # Save session
         session_id = session_store.save_session(filename, result)
@@ -260,6 +273,119 @@ async def audit_contract_async(file: UploadFile = File(...)):
         "status": "pending",
         "message": "审核任务已启动，请使用 task_id 查询进度"
     }
+
+
+# ------------------- SSE Streaming Endpoints -------------------
+
+def run_audit_with_stream(task_id: str, file_content: bytes, filename: str):
+    """Run audit and stream progress updates."""
+    queue = stream_queues[task_id] = Queue()
+
+    def progress_callback(progress: int, message: str):
+        """Send progress update via queue."""
+        event = json.dumps({
+            "type": "progress",
+            "progress": progress,
+            "message": message
+        })
+        queue.put(f"data: {event}\n\n")
+
+    try:
+        progress_callback(0, "开始审核合同...")
+
+        # Run audit with progress callback
+        result = audit_service.audit_from_file(
+            file_content,
+            filename,
+            progress_callback=progress_callback
+        )
+
+        # Save session
+        session_id = session_store.save_session(filename, result)
+
+        # Send completion
+        event = json.dumps({
+            "type": "complete",
+            "session_id": session_id,
+            "result": result
+        })
+        queue.put(f"data: {event}\n\n")
+
+    except Exception as e:
+        event = json.dumps({
+            "type": "error",
+            "error": str(e)
+        })
+        queue.put(f"data: {event}\n\n")
+    finally:
+        queue.put("data: {\"type\": \"done\"}\n\n")
+        # Clean up after a delay
+        import time
+        time.sleep(1)
+        stream_queues.pop(task_id, None)
+
+
+@app.post("/audit/stream")
+async def audit_contract_stream(file: UploadFile = File(...)):
+    """
+    Stream contract audit with real-time progress updates.
+
+    Args:
+        file: Uploaded contract file
+
+    Returns:
+        Server-Sent Events stream
+    """
+    if not file.filename:
+        raise HTTPException(status_code=400, detail="文件名不能为空")
+
+    if not audit_service.file_handler.validate_file_type(file.filename):
+        raise HTTPException(
+            status_code=400,
+            detail=f"不支持的文件格式。支持格式: {', '.join(audit_service.file_handler.SUPPORTED_EXTENSIONS)}"
+        )
+
+    # Generate task ID
+    task_id = str(uuid.uuid4())
+
+    # Read file content
+    file_content = await file.read()
+
+    # Start audit in background thread
+    thread = Thread(target=run_audit_with_stream, args=(task_id, file_content, file.filename))
+    thread.daemon = True
+    thread.start()
+
+    # Return streaming response
+    async def event_generator():
+        queue = stream_queues.get(task_id)
+        if not queue:
+            yield "data: {\"type\": \"error\", \"error\": \"Failed to start task\"}\n\n"
+            return
+
+        while True:
+            try:
+                event = queue.get(timeout=30)
+                if event == "data: {\"type\": \"done\"}\n\n":
+                    break
+                yield event
+            except QueueEmpty:
+                # Heartbeat to keep connection alive
+                yield "data: {\"type\": \"heartbeat\"}\n\n"
+
+            # Check if thread is still running
+            if not thread.is_alive() and queue.empty():
+                break
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        }
+    )
 
 
 @app.get("/tasks/{task_id}")

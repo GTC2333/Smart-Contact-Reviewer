@@ -22,12 +22,17 @@ class RiskAnnotatorAgent(BaseAgent):
 
         raw_resp = self._call_llm(
             system=system_prompt,
-            user=user_prompt,
-            response_format={"type": "json_object"}
+            user=user_prompt
         )
-        data = self._parse_json(raw_resp["raw"])
 
-        if not data:
+        try:
+            data = self._parse_json(raw_resp["raw"])
+        except (ValueError, Exception):
+            # Handle parsing failures gracefully
+            return None
+
+        # Handle case where LLM returns a list instead of dict
+        if not data or not isinstance(data, dict):
             return None
 
         anno = {

@@ -53,11 +53,11 @@ class PDFExporter:
         story.append(Paragraph(f"<b>当事方数量:</b> {party_count}", self.styles['Normal']))
         story.append(Spacer(1, 20))
 
-        # Risk statistics
+        # Risk statistics (severity is in Chinese: 高/中/低)
         annotations = audit_result.get("annotations", [])
-        high = len([a for a in annotations if a.get("severity", "").lower() == "high"])
-        medium = len([a for a in annotations if a.get("severity", "").lower() == "medium"])
-        low = len([a for a in annotations if a.get("severity", "").lower() == "low"])
+        high = len([a for a in annotations if a.get("severity", "").strip() == "高"])
+        medium = len([a for a in annotations if a.get("severity", "").strip() == "中"])
+        low = len([a for a in annotations if a.get("severity", "").strip() == "低"])
 
         story.append(Paragraph("<b>风险统计</b>", self.styles['Heading2']))
         story.append(Spacer(1, 10))

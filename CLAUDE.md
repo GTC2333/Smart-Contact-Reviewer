@@ -62,10 +62,43 @@ All agents extend `BaseAgent` (`agents/base_agent.py`):
 - **Settings**: `config/settings.yaml` - model config, LLM providers (openai/azure/anthropic/gemini/deepseek), RAG settings
 - **Prompts**: `config/prompt_templates.yaml` - prompt templates for each agent
 
+#### LLM Providers
+
+Configure in `config/settings.yaml`:
+- **openai**: OpenAI API (default)
+- **azure**: Azure OpenAI
+- **anthropic**: Anthropic Claude
+- **gemini**: Google Gemini
+- **deepseek**: DeepSeek (default, cost-effective)
+
+API keys should be set via environment variables (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, etc.) or in a local config file.
+
 ### Data Models
 
 - `models/contract.py` - FormattedContract
 - `models/annotation.py` - AnnotationResult
+
+### Directory Structure
+
+```
+├── main.py                    # Pipeline entry point
+├── api/server.py              # FastAPI backend
+├── frontend/app.py            # Streamlit UI
+├── agents/                    # 4 specialized agents
+│   ├── contract_formatter.py
+│   ├── law_search_agent.py
+│   ├── risk_annotator.py
+│   └── correction_agent.py
+├── core/
+│   ├── pipeline/              # Pipeline orchestration
+│   ├── llm/                   # LLM client factory
+│   ├── rag/                   # RAG for legal references
+│   └── config_manager.py
+├── services/                  # Service layer
+├── models/                    # Data models
+├── config/                    # YAML configs
+└── utils/                     # Utilities (file handling, text preprocessing)
+```
 
 ### Key Files
 
@@ -78,3 +111,4 @@ All agents extend `BaseAgent` (`agents/base_agent.py`):
 | `services/pipeline_service.py` | Service layer for pipeline |
 | `core/llm/factory.py` | LLM client factory |
 | `core/config_manager.py` | Configuration management |
+| `utils/text_preprocess.py` | PDF/Word/TXT text extraction |

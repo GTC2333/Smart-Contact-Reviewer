@@ -44,11 +44,11 @@ class WordExporter:
         doc.add_paragraph(f"当事方数量: {party_count}")
         doc.add_paragraph()
 
-        # Risk statistics
+        # Risk statistics (severity is in Chinese: 高/中/低)
         annotations = audit_result.get("annotations", [])
-        high = len([a for a in annotations if a.get("severity", "").lower() == "high"])
-        medium = len([a for a in annotations if a.get("severity", "").lower() == "medium"])
-        low = len([a for a in annotations if a.get("severity", "").lower() == "low"])
+        high = len([a for a in annotations if a.get("severity", "").strip() == "高"])
+        medium = len([a for a in annotations if a.get("severity", "").strip() == "中"])
+        low = len([a for a in annotations if a.get("severity", "").strip() == "低"])
 
         doc.add_heading('风险统计', level=1)
         table = doc.add_table(rows=5, cols=2)
