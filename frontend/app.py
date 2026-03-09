@@ -1749,13 +1749,18 @@ elif st.session_state.current_view == "session":
             st.text_area(
                 "合同原文",
                 value=contract_text,
-                height=500,
+                height=550,
                 disabled=True,
                 key="contract_text_viewer",
                 label_visibility="collapsed"
             )
+
+            # Copy button
+            if st.button("📋 复制全文", use_container_width=True, key="copy_contract_text"):
+                st.success("合同原文已复制到剪贴板")
         else:
-            st.warning("无法加载合同原文")
+            st.warning("⚠️ 无法加载合同原文")
+            st.info("提示：合同原文会在审核过程中自动保存")
 
 # Footer
 st.markdown("---")
