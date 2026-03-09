@@ -343,6 +343,7 @@ class ContractAuditPipeline(Pipeline):
 
         result = {
             "contract_id": contract_id,
+            "contract_text": contract_text,
             "metadata": {
                 "processed_at": datetime.now().isoformat(),
                 "clause_count": len(formatted.get("clauses", [])),
