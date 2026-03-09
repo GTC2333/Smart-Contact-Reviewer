@@ -48,3 +48,6 @@ outputs/           # 生成的输出文件
 .pytest_cache/
 .coverage
 htmlcov/
+
+# 数据目录
+data/           # 数据目录（包含samples和sessions）
