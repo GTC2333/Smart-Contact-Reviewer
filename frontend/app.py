@@ -1062,6 +1062,22 @@ st.markdown("""
             background: linear-gradient(135deg, #242438 0%, #1A1A2E 100%);
         }
     }
+
+    /* 合同原文显示区域 */
+    .contract-text-viewer label {
+        font-family: var(--font-serif);
+        font-weight: 600;
+        color: var(--color-text-primary);
+    }
+
+    .contract-text-viewer textarea {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-sm);
+        line-height: 1.8;
+        background: var(--color-bg-card) !important;
+        border: 1px solid var(--color-border) !important;
+        border-radius: var(--radius-sm);
+    }
 </style>
 """, unsafe_allow_html=True)
 
