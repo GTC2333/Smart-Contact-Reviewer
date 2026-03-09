@@ -254,6 +254,66 @@ st.markdown("""
         line-height: 1.6;
     }
 
+    /* 标题层级 */
+    h1, .h1 {
+        font-family: var(--font-serif);
+        font-size: var(--font-size-3xl);
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    h2, .h2 {
+        font-family: var(--font-serif);
+        font-size: var(--font-size-2xl);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 0.75rem;
+    }
+
+    h3, .h3 {
+        font-family: var(--font-sans);
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    h4, .h4 {
+        font-family: var(--font-sans);
+        font-size: var(--font-size-lg);
+        font-weight: 500;
+        color: var(--color-text-secondary);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Streamlit 标题覆盖 */
+    .stMarkdown h1 {
+        font-family: var(--font-serif);
+        font-size: var(--font-size-3xl);
+        font-weight: 700;
+        color: var(--color-text-primary);
+    }
+
+    .stMarkdown h2 {
+        font-family: var(--font-serif);
+        font-size: var(--font-size-2xl);
+        font-weight: 600;
+    }
+
+    .stMarkdown h3 {
+        font-family: var(--font-sans);
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+    }
+
+    .stMarkdown h4 {
+        font-family: var(--font-sans);
+        font-size: var(--font-size-lg);
+        font-weight: 500;
+    }
+
     /* Main layout */
     .main .block-container {
         padding-top: 2rem;
