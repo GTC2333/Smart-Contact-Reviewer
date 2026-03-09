@@ -277,7 +277,7 @@ async def audit_contract_async(file: UploadFile = File(...)):
 
 # ------------------- SSE Streaming Endpoints -------------------
 
-def run_audit_with_stream(task_id: str, file_content: bytes, filename: str):
+def run_audit_with_stream(task_id: str, file_content: bytes, filename: str, contract_text: str = ""):
     """Run audit and stream progress updates."""
     queue = stream_queues[task_id] = Queue()
 
@@ -351,13 +351,30 @@ async def audit_contract_stream(file: UploadFile = File(...)):
     # Read file content
     file_content = await file.read()
 
-    # Start audit in background thread
-    thread = Thread(target=run_audit_with_stream, args=(task_id, file_content, file.filename))
+    # Extract contract text immediately to send to frontend
+    from core.file_handler import FileHandler
+    file_handler = FileHandler()
+    import tempfile
+    with tempfile.NamedTemporaryFile(delete=False, suffix=Path(filename).suffix) as tmp:
+        tmp.write(file_content)
+        tmp_path = tmp.name
+    try:
+        contract_text = file_handler.extract_text(tmp_path)
+    finally:
+        import os
+        os.unlink(tmp_path)
+
+    # Start audit in background thread, pass contract_text
+    thread = Thread(target=run_audit_with_stream, args=(task_id, file_content, file.filename, contract_text))
     thread.daemon = True
     thread.start()
 
-    # Return streaming response
+    # Return streaming response with contract_text as first event
     async def event_generator():
+        # First event: send contract_text
+        yield f"data: {json.dumps({'type': 'contract_text', 'text': contract_text})}\n\n"
+
+        # Get queue for progress events
         queue = stream_queues.get(task_id)
         if not queue:
             yield "data: {\"type\": \"error\", \"error\": \"Failed to start task\"}\n\n"

@@ -1304,6 +1304,19 @@ elif st.session_state.current_view == "session":
             progress_bar = st.progress(0)
             status_text = st.empty()
 
+            # Display contract text if available
+            if st.session_state.get("pending_contract_text"):
+                st.markdown("### 📄 合同原文")
+                st.text_area(
+                    "原始合同文本",
+                    value=st.session_state.pending_contract_text,
+                    height=250,
+                    disabled=True,
+                    key="contract_text_during_audit",
+                    label_visibility="collapsed"
+                )
+                st.markdown("---")
+
             for chunk in response.iter_content(chunk_size=1024):
                 if chunk:
                     buffer += chunk.decode("utf-8")
@@ -1328,6 +1341,11 @@ elif st.session_state.current_view == "session":
                                 message = data.get("message", "")
                                 progress_bar.progress(progress / 100)
                                 status_text.info(f"**{message}**")
+
+                            elif event_type == "contract_text":
+                                # Store contract text for display
+                                contract_text = data.get("text", "")
+                                st.session_state.pending_contract_text = contract_text
 
                             elif event_type == "complete":
                                 result = data.get("result", {})
