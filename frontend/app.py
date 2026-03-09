@@ -413,27 +413,6 @@ st.markdown("""
         border-width: 2px;
     }
 
-    /* Session item */
-    .session-item {
-        padding: 0.75rem 1rem;
-        border-radius: var(--radius-sm);
-        margin-bottom: 0.5rem;
-        cursor: pointer;
-        transition: all var(--transition-fast);
-        border: 1px solid transparent;
-    }
-
-    .session-item:hover {
-        background: rgba(212, 165, 116, 0.1);
-        border-color: var(--color-border);
-        transform: translateX(4px);
-    }
-
-    .session-item.active {
-        background: rgba(212, 165, 116, 0.15);
-        border-color: var(--color-accent);
-    }
-
     /* Tab 切换 - 底部指示器风格 */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
